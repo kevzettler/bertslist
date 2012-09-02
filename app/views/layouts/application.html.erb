@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bertslist</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="notice"><%= notice %></div>
+<div class="alert"><%= alert %></div>
+
+<div class="row">
+  <div class="span4">
+    <h1>Bertslist.org</h1>
+    <a href="/about">About</a>
+  </div>
+  <div class="span5">
+    <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>
