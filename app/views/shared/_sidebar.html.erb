@@ -8,13 +8,15 @@
 
 <h3>Shelters</h3>
 <nav>
+  <ul>
   <% unless current_shelter %>
-  <a href="<%= new_shelter_registration_url %>">Sign Up</a>
-  <a href="<%= new_shelter_session_url %>">Sign In</a>
+  <li><a href="<%= new_shelter_registration_url %>">Sign Up</a></li>
+  <li><a href="<%= new_shelter_session_url %>">Sign In</a></li>
   <% else %>
-  <a href="">Profile</a>
-  <a href="">Pet Listing</a>
-  <a href="<%= destroy_shelter_session_url %>">Sign out</a>
+  <li><a href="">Profile</a></li>
+  <li><a href="">Pet Listing</a></li>
+  <li><a href="<%= destroy_shelter_session_url %>">Sign out</a></li>
   <% end %>
+  </ul>
 </nav>
 

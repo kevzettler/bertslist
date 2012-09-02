@@ -4,6 +4,8 @@ class CreatePets < ActiveRecord::Migration
       t.string :name
       t.integer :age
       t.text :notes
+      t.date :save_date
+      t.references :user
 
       t.timestamps
     end
