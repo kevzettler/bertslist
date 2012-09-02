@@ -1,0 +1,20 @@
+<h1><a href="/">Bertslist.org</a></h1>
+<nav>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+  <a href="/blog">Blog</a>
+  <a href="/donate">Donate</a>
+</nav>
+
+<h3>Shelters</h3>
+<nav>
+  <% unless current_shelter %>
+  <a href="<%= new_shelter_registration_url %>">Sign Up</a>
+  <a href="<%= new_shelter_session_url %>">Sign In</a>
+  <% else %>
+  <a href="">Profile</a>
+  <a href="">Pet Listing</a>
+  <a href="<%= destroy_shelter_session_url %>">Sign out</a>
+  <% end %>
+</nav>
+

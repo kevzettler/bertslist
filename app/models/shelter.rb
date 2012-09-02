@@ -1,4 +1,6 @@
 class Shelter < ActiveRecord::Base
+  has_many :pets
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
