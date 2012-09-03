@@ -6,16 +6,17 @@
   <a href="/donate">Donate</a>
 </nav>
 
-<h3>Shelters</h3>
 <nav>
   <ul>
-  <% unless current_shelter %>
-  <li><a href="<%= new_shelter_registration_url %>">Sign Up</a></li>
-  <li><a href="<%= new_shelter_session_url %>">Sign In</a></li>
+  <% unless current_user %>
+  <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
+  <li><a href="<%= new_user_session_url %>">Sign In</a></li>
   <% else %>
-  <li><a href="">Profile</a></li>
-  <li><a href="">Pet Listing</a></li>
-  <li><a href="<%= destroy_shelter_session_url %>">Sign out</a></li>
+  <li><a href="<%= profile_url %>">Profile</a></li>
+  <% if current_user.verified? %>
+    <li><a href="">List Pets</a></li>
+  <% end %>
+  <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
   <% end %>
   </ul>
 </nav>
