@@ -12,9 +12,9 @@
   <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
   <li><a href="<%= new_user_session_url %>">Sign In</a></li>
   <% else %>
-  <li><a href="<%= profile_url %>">Profile</a></li>
+  <li><a href="<%= edit_user_path(current_user) %>">Profile</a></li>
   <% if current_user.verified? %>
-    <li><a href="">List Pets</a></li>
+    <li><a href="<%= users_pets_path(current_user) %>">Pet List</a></li>
   <% end %>
   <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
   <% end %>

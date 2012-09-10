@@ -1,0 +1,9 @@
+<h2>Your pets</h2>
+
+<% if @user.pets.count == 0 %>
+  <p>This user does not currently have any pets listed</p>
+<% end %>
+
+<% if @user == current_user %>
+  <%= link_to "Add a new pet", new_pet_url %>
+<% end %>

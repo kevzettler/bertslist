@@ -24,13 +24,7 @@ class PetsController < ApplicationController
   # GET /pets/new
   # GET /pets/new.json
   def new
-    pet = Pet.new
-    3.times{ pet.pet_images.build }
-    @pet = pet
-    
-    puts "omg pet!"
-    puts @pet.inspect
-    puts @pet.pet_images.inspect
+    @pet = Pet.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +35,6 @@ class PetsController < ApplicationController
   # GET /pets/1/edit
   def edit
     @pet = Pet.find(params[:id])
-    3.times{ @pet.pet_images.build }
   end
 
   # POST /pets

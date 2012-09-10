@@ -1,12 +1,14 @@
 Bertslist::Application.routes.draw do
   resources :pets
+  resources :pet_images
 
-  resources :users
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
-
-  match '/profile' => 'users#profile', :as => :profile
+  resources :users
+  match 'users/:id/pets' => 'users#pets', :as => :users_pets
 
   root :to => "pets#index"
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

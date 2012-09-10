@@ -1,0 +1,25 @@
+<h1>Users
+</h1>
+
+<table>
+
+<tr>
+  <td>Email</td>
+  <td>Verified?</td>
+  <td>Admin?</td>
+</tr>
+
+<% @users.each do |user| %>
+
+<tr>
+  <td><%= user.email %></td>
+  <!-- <%= link_to 'Show', user %> -->
+  <!-- <%= link_to 'Edit', edit_user_path(user) %> -->
+  <!-- <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+</tr>
+
+<% end %>
+</table>
+
+
+

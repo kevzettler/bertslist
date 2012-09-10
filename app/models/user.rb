@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :address, :as => :addressable
+  has_many :pets
   accepts_nested_attributes_for :address
 
   # Include default devise modules. Others available are:
@@ -12,8 +13,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid
   # attr_accessible :title, :body
 
+  validates :email, :presence => true
+
   def verified?
-    false
+    true
   end
 
   def self.new_with_session(params, session)

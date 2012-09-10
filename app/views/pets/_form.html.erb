@@ -1,4 +1,4 @@
-<%= form_for(@pet) do |f| %>
+<%= form_for @pet, :html => {:multipart => true}, :id=> "pet_form" do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -11,19 +11,29 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
+
+  <div class="field">
+    <%= f.label :save_date %><br />
+    <%= f.text_field :save_date, :class=> "datepicker" %>
+  </div>
+
   <div class="field">
     <%= f.label :age %><br />
     <%= f.number_field :age %>
   </div>
   <div class="field">
     <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes, :rows => '10' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
+  <%= render 'shared/uploader_form' %> 
+
+<button type="button" id="new_pet_submit">Submit</button>
+
