@@ -1,4 +1,4 @@
-<%= form_for @pet, :html => {:multipart => true}, :id=> "pet_form" do |f| %>
+<%= form_for @pet, :html => {:id=> "pet_form", :class => "ajaxy_form"} do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -14,13 +14,13 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class =>"validate[required]" %>
   </div>
 
 
   <div class="field">
     <%= f.label :save_date %><br />
-    <%= f.text_field :save_date, :class=> "datepicker" %>
+    <%= f.text_field :save_date, :class => "validate[required]" %>
   </div>
 
   <div class="field">
@@ -32,8 +32,9 @@
     <%= f.text_area :notes, :rows => '10' %>
   </div>
 
+  <input type="submit" value="wot" />
 <% end %>
   <%= render 'shared/uploader_form' %> 
 
-<button type="button" id="new_pet_submit">Submit</button>
+<button type="button" id="pet_form_submit">Submit</button>
 

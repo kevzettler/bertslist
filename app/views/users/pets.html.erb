@@ -1,9 +1,28 @@
 <h2>Your pets</h2>
 
 <% if @user.pets.count == 0 %>
-  <p>This user does not currently have any pets listed</p>
+  <% if current_user.id == @user.id %>
+  <p>You don't currently have any pets listed.</p>
+  <% else %>
+  <p>This user does not currently have any pets listed.</p>
+  <% end %>
 <% end %>
 
 <% if @user == current_user %>
   <%= link_to "Add a new pet", new_pet_url %>
+<% end %>
+
+<% unless !@user.pets.count %>
+<% @user.pets.each do |pet| %>
+<div class="pet_cell">
+  <img src="" alt="<%= pet.name %>" height="50" width="50"/>
+  <h2><%= pet.name %></h2>
+  <span><%= pet.age %></span>
+  <p><%= pet.notes %></p>
+  <!-- <%= link_to 'Show', pet %> -->
+  <!-- <%= link_to 'Edit', edit_pet_path(pet) %> -->
+  <!-- <%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+</div>
+
+<% end %>
 <% end %>

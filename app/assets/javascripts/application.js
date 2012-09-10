@@ -11,10 +11,21 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require jquery-fileupload
-//= require_tree .
+//= require_tree ./vendor/jquery
+//= require_tree ./vendor/bootstrap
+//= require_tree ./widgets
 
+// require jquery-fileupload
 $(function(){
-  $('.datepicker').datepicker({"altFormat": "yy-mm-dd"});
+  // $('.datepicker').datepicker({
+  //   "altFormat": "yy-mm-dd"
+  // });
+
+  $('.ajaxy_form').ajaxy_form();
+//  $('#pet_form').pet_form();
+  $('#pet_form_submit').click(function(event){
+    console.log("pet form button click");
+    $('#pet_form').submit();
+    return false;
+  });
 });
