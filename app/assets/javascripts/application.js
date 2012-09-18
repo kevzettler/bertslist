@@ -10,22 +10,26 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+//= require ./jquery-1.7.2
 //= require_tree ./vendor/jquery
+//= require ./formValidator.2.5.5.1/languages/jquery.validationEngine-en.js
+//= require ./formValidator.2.5.5.1/jquery.validationEngine.js
+//= require_tree ./vendor/bootstrap
 //= require jquery-fileupload
 //= require_tree ./widgets
 
 // require jquery-fileupload
 $(function(){
+
   // $('.datepicker').datepicker({
   //   "altFormat": "yy-mm-dd"
   // });
 
-  $('.ajaxy_form').ajaxy_form();
-//  $('#pet_form').pet_form();
-  $('#pet_form_submit').click(function(event){
-    console.log("pet form button click");
-    $('#pet_form').submit();
-    return false;
-  });
+   $('.ajaxy_form').ajaxy_form();
+// //  $('#pet_form').pet_form();
+//   $('#pet_form_submit').click(function(event){
+//     console.log("pet form button click");
+//     $('#pet_form').submit();
+//     return false;
+//   });
 });

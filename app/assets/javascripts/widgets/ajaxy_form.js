@@ -6,15 +6,16 @@
 	,_create: function() {
           console.log("ajaxy form create", this.element);
 	    this.element.validationEngine('attach', {
-		onValidationComplete: $.proxy(function(form, status){
+		promptPosition: "topLeft"
+		,scroll: false
+		,onValidationComplete: $.proxy(function(form, status){
                       console.log("omg validation complete");
 		    if(status === true){
                       console.log("submitting");
-			this.submit();
+		        this.submit();
 		    }
+                  return false;
 		 }, this)
-		,promptPosition: "topLeft"
-		,scroll: false
 	    });
 
   	}
