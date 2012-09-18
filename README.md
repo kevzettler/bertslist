@@ -12,6 +12,8 @@ Standard rails app
    bundle exec rails s #runs server
 ```
 
+Copy this to config/database.yml
+
 ```yaml
 # Database.yml
 test:
