@@ -40,8 +40,8 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
-    params[:user_id] = current_user.id
     @pet = Pet.new(params[:pet])
+    @pet.user_id = current_user.id
 
     respond_to do |format|
       if @pet.save

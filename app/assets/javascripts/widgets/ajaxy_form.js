@@ -4,11 +4,12 @@
 	options:{}
 
 	,_create: function() {
-          console.log("ajaxy form create", this);
+          console.log("ajaxy form create", this.element);
 	    this.element.validationEngine('attach', {
 		onValidationComplete: $.proxy(function(form, status){
-		    if(status === true){
                       console.log("omg validation complete");
+		    if(status === true){
+                      console.log("submitting");
 			this.submit();
 		    }
 		 }, this)
@@ -37,6 +38,7 @@
 	}
 	
 	,submitError: function(jqXHR, text, status){
+          console.log("submit error", jqXHR, text, status);
 	    try{
 		var data = JSON.parse(jqXHR.responseText);
 		var message = this.buildResponseMessage(data, status, jqXHR);
@@ -50,6 +52,7 @@
   	}
 
 	,submitSuccess: function(data, textStatus, jqXHR){
+          console.log("submitSuccess", jqXHR, text, status);
 	    var message = this.buildResponseMessage(data, textStatus, jqXHR);
 	    
   	    this.element.validationEngine('showPrompt', message, this.checkLoadingStatus(data), 'topLeft', true);
@@ -57,10 +60,13 @@
   	}
 
 	,buildAjaxEvent: function(method, action, params){
+          console.log("building an ajax event");
 	    var self = this;
 
 	    return (function(method,action,params,self){
+              console.log("closure 1");
 		return function(){
+                  console.log("closure 2");
 		    $(document).validationEngine('hideAll');
 		    self.element.disable();
 		    $.ajax({
@@ -69,6 +75,7 @@
 			,data: params
 			,error: $.proxy(self.submitError, self)
 			,success: $.proxy(self.submitSuccess, self)
+                      ,complete: function(){console.log("complete ajax!");}
 		    });
 		    
 		    return false;

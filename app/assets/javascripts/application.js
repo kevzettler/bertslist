@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require_tree ./vendor/jquery
-//= require_tree ./vendor/bootstrap
+//= require jquery-fileupload
 //= require_tree ./widgets
 
 // require jquery-fileupload
