@@ -34,8 +34,7 @@ gem "jquery-fileupload-rails"
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
