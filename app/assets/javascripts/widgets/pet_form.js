@@ -11,7 +11,7 @@ var pet_form = {
   }
 
   ,submitSuccess: function(data, textStatus, jqXHR){
-    $('#fileupload').data('fileupload').option('formData', {pet_id: data.id});
+    $('#fileupload').data('fileupload').option('formData', {pet_id: data.data.id});
     $('#global_upload_start').click();
     $('#fileupload').enable();
     $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, data, textStatus, jqXHR);
