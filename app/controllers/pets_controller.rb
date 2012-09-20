@@ -21,6 +21,14 @@ class PetsController < ApplicationController
     end
   end
 
+  def images
+    @pet = Pet.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @pet.pet_images.map{|pet_image| pet_image.to_jq_upload} }
+    end
+  end
+
   # GET /pets/new
   # GET /pets/new.json
   def new
@@ -62,7 +70,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       if @pet.update_attributes(params[:pet])
         format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: {"message" => "Pet was successfully updated", "success" => true, "data" => @pet}, status: :created, location: @pet }
       else
         format.html { render action: "edit" }
         format.json { render json: @pet.errors, status: :unprocessable_entity }

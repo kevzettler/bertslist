@@ -5,6 +5,7 @@ Bertslist::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
   resources :users
   match 'users/:id/pets' => 'users#pets', :as => :users_pets
+  match 'pets/:id/images' => 'pets#images', :as => :pets_images
 
   root :to => "pets#index"
 

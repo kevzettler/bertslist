@@ -56,7 +56,7 @@
 	,submitSuccess: function(data, textStatus, jqXHR){
 	    var message = this.buildResponseMessage(data, textStatus, jqXHR);
 	    
-  	    this.element.validationEngine('showPrompt', message, this.checkLoadingStatus(data), 'topLeft', true);
+  	    $('button:last').validationEngine('showPrompt', message, this.checkLoadingStatus(data), 'topRight', true);
 	    this.element.enable();
   	}
 

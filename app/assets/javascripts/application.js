@@ -67,6 +67,8 @@ $(function(){
   //   "altFormat": "yy-mm-dd"
   // });
 
+
+  // Initialize the jQuery File PetImage widget:
    $('#pet_form').pet_form();
 
   $('#pet_form_submit').click(function(event){

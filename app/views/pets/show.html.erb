@@ -1,19 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @pet.name %>
-</p>
-
-<p>
-  <b>Age:</b>
-  <%= @pet.age %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @pet.notes %>
-</p>
+<%= render :partial => "shared/pet_cell", :locals => {:pet => @pet} %>
 
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |

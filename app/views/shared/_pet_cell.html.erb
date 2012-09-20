@@ -1,0 +1,9 @@
+<div class="pet_cell row">
+  <img src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.notes %>" height="150" width="150"/>
+  <h2><%= pet.name %></h2>
+  <p>Age: <%= pet.age %><p>
+  <p><%= pet.notes %></p>
+  <!-- <%= link_to 'Show', pet %> -->
+  <!-- <%= link_to 'Edit', edit_pet_path(pet) %> -->
+  <!-- <%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+</div>
