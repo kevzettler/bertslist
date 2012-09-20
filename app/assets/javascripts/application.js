@@ -18,18 +18,59 @@
 //= require jquery-fileupload
 //= require_tree ./widgets
 
-// require jquery-fileupload
+/*
+* Awesome helper function for validationEngine great for use with
+* autobox checks that a field is not the default value before
+* submitting
+*/
+function checkDefault(field, rules, i, options){
+    if(field.get(0).defaultValue == field.val()){
+	return "* Field is required";
+    }
+}
+
+/*
+* Helper function to collect message from jqXHR objects. Called on
+* ajax error callbacks
+*/
+function jqXHRMessage(jqXHR){
+    var text = ""
+    ,key_count = 0
+    ,index
+    ;
+  
+    try{    
+	var  json = JSON.parse(jqXHR.responseText);
+    }catch(ex){
+	var json = {error: "Sorry! there was an error procesing your request. <br />We'll fix this as soon as possible. Please try later. "};
+    }
+  
+      
+    for(key in json){
+	key_count+=1;
+	text += key + " " + json[key] + "\n";
+    }
+  
+    if(key_count == 1){
+	index = text.indexOf(' ');
+	text = text.substring(index);
+    }
+  
+    return text;
+};
+
+
+
 $(function(){
 
   // $('.datepicker').datepicker({
   //   "altFormat": "yy-mm-dd"
   // });
 
-   $('.ajaxy_form').ajaxy_form();
-// //  $('#pet_form').pet_form();
-//   $('#pet_form_submit').click(function(event){
-//     console.log("pet form button click");
-//     $('#pet_form').submit();
-//     return false;
-//   });
+   $('#pet_form').pet_form();
+
+  $('#pet_form_submit').click(function(event){
+    $('#pet_form').submit();
+    return false;
+  });
 });

@@ -3,7 +3,9 @@
 <% @pets.each do |pet| %>
 
 <div class="pet_cell">
-  <img src="" alt="<%= pet.name %>" height="50" width="50"/>
+  <% if pet.pet_images.count > 0 %>
+   <img src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.name %>" height="50" width="50"/>
+  <% end %>
   <h2><%= pet.name %></h2>
   <span><%= pet.age %></span>
   <p><%= pet.notes %></p>

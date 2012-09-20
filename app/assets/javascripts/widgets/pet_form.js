@@ -4,11 +4,17 @@ var pet_form = {
   _create: function(){
     $.cloudfuji.ajaxy_form.prototype._create.call(this);
   }
+  
+  ,submit: function(){
+    $('#fileupload').disable();
+    $.cloudfuji.ajaxy_form.prototype.submit.apply(this, arguments);
+  }
 
   ,submitSuccess: function(data, textStatus, jqXHR){
+    $('#fileupload').data('fileupload').option('formData', {pet_id: data.id});
+    $('#global_upload_start').click();
+    $('#fileupload').enable();
     $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, data, textStatus, jqXHR);
-    console.log("omg pet_form submit success", data, textStatus, jqXHR);
-    $('#fileupload').data('fileupload').submit();
   }
 
 };

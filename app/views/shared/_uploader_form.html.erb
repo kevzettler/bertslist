@@ -7,13 +7,13 @@
         <!-- The fileinput-button span is used to style the file input field as button -->
         <span class="btn btn-success fileinput-button">
           <i class="icon-plus icon-white"></i>
-          <span>Add files...</span>
+          <span>Add Photos...</span>
           <%= f.file_field :photo %>
         </span>
-        <!-- <button type="submit" class="btn btn-primary start"> -->
-        <!--   <i class="icon-upload icon-white"></i> -->
-        <!--   <span>Start upload</span> -->
-        <!-- </button> -->
+        <button type="submit" class="btn btn-primary start" style="display:none;" id="global_upload_start">
+          <i class="icon-upload icon-white"></i>
+          <span>Start upload</span>
+        </button>
         <!-- <button type="reset" class="btn btn-warning cancel"> -->
         <!--   <i class="icon-ban-circle icon-white"></i> -->
         <!--   <span>Cancel upload</span> -->
@@ -65,10 +65,10 @@
       <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
     </td>
     <td class="start">{% if (!o.options.autoPetImage) { %}
-      <!-- <button class="btn btn-primary"> -->
-      <!--   <i class="icon-upload icon-white"></i> -->
-      <!--   <span>{%=locale.fileupload.start%}</span> -->
-      <!-- </button> -->
+      <button class="btn btn-primary" style="display:none;">
+        <i class="icon-upload icon-white"></i>
+        <span>{%=locale.fileupload.start%}</span>
+      </button>
       {% } %}</td>
     {% } else { %}
     <td colspan="2"></td>
@@ -115,25 +115,26 @@
 <script type="text/javascript">
   $(function () {
       // Initialize the jQuery File PetImage widget:
+
       $('#fileupload').fileupload({
         "acceptFileTypes": /(\.|\/)(gif|jpe?g|png)$/i
       });
 
       // 
       // Load existing files:
-      $.getJSON($('#fileupload').prop('action'), function (files) {
-        var fu = $('#fileupload').data('fileupload'), 
-          template;
-        fu._adjustMaxNumberOfFiles(-files.length);
-        console.log(files);
-        template = fu._renderDownload(files)
-          .appendTo($('#fileupload .files'));
-        // Force reflow:
-        fu._reflow = fu._transition && template.length &&
-          template[0].offsetWidth;
-        template.addClass('in');
-        $('#loading').remove();
-      });
+      // $.getJSON($('#fileupload').prop('action'), function (files) {
+      //   var fu = $('#fileupload').data('fileupload'), 
+      //     template;
+      //   fu._adjustMaxNumberOfFiles(-files.length);
+      //   console.log(files);
+      //   template = fu._renderDownload(files)
+      //     .appendTo($('#fileupload .files'));
+      //   // Force reflow:
+      //   fu._reflow = fu._transition && template.length &&
+      //     template[0].offsetWidth;
+      //   template.addClass('in');
+      //   $('#loading').remove();
+      // });
 
   });
 </script>

@@ -40,7 +40,8 @@ class PetImagesController < ApplicationController
   # POST /uploads
   # POST /uploads.json
   def create
-    @pet_image = PetImage.new(params[:photo])
+    @pet_image = PetImage.new(params[:pet_image])
+    @pet_image.pet_id = params[:pet_id]
 
     respond_to do |format|
       if @pet_image.save
@@ -51,6 +52,8 @@ class PetImagesController < ApplicationController
         }
         format.json { render json: [@pet_image.to_jq_upload].to_json, status: :created, location: @pet_image }
       else
+        puts "oh jeeez errors"
+        puts @pet_image.errors.inspect
         format.html { render action: "new" }
         format.json { render json: @pet_image.errors, status: :unprocessable_entity }
       end

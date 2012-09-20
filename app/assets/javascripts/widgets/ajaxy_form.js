@@ -1,15 +1,17 @@
 (function ($, undefined) {
 
     $.widget('cloudfuji.ajaxy_form', {
-	options:{}
+	options:{
+          promptPosition: "topRight",
+          promptScroll: false
+        }
 
 	,_create: function() {
+          var _this = this;
           console.log("ajaxy form create", this.element);
 	    this.element.validationEngine('attach', {
-		promptPosition: "topLeft"
-		,scroll: false
+		promptPosition: _this.option('promptPosition')
 		,onValidationComplete: $.proxy(function(form, status){
-                      console.log("omg validation complete");
 		    if(status === true){
                       console.log("submitting");
 		        this.submit();
@@ -39,7 +41,6 @@
 	}
 	
 	,submitError: function(jqXHR, text, status){
-          console.log("submit error", jqXHR, text, status);
 	    try{
 		var data = JSON.parse(jqXHR.responseText);
 		var message = this.buildResponseMessage(data, status, jqXHR);
@@ -53,7 +54,6 @@
   	}
 
 	,submitSuccess: function(data, textStatus, jqXHR){
-          console.log("submitSuccess", jqXHR, text, status);
 	    var message = this.buildResponseMessage(data, textStatus, jqXHR);
 	    
   	    this.element.validationEngine('showPrompt', message, this.checkLoadingStatus(data), 'topLeft', true);

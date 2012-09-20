@@ -15,7 +15,7 @@
 <% unless !@user.pets.count %>
 <% @user.pets.each do |pet| %>
 <div class="pet_cell">
-  <img src="" alt="<%= pet.name %>" height="50" width="50"/>
+  <img src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.name %>" height="50" width="50"/>
   <h2><%= pet.name %></h2>
   <span><%= pet.age %></span>
   <p><%= pet.notes %></p>

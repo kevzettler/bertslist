@@ -63,5 +63,6 @@ module Bertslist
 
     #Don't load db on asset precompile
     config.assets.initialize_on_precompile = false
+
   end
 end
