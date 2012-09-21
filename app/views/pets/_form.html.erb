@@ -13,22 +13,22 @@
 
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name, :class =>"validate[required]" %>
   </div>
 
 
   <div class="field">
-    <%= f.label :save_date %><br />
-    <%= f.text_field :save_date, :class => "validate[required]" %>
+    <%= f.label :save_date %>
+    <%= f.text_field :save_date, :class => "datepicker" %>
   </div>
 
   <div class="field">
-    <%= f.label :age %><br />
+    <%= f.label :age %>
     <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br />
+    <%= f.label :notes %>
     <%= f.text_area :notes, :rows => '10' %>
   </div>
 

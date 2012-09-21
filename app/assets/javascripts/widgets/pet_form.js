@@ -12,6 +12,11 @@ var pet_form = {
     $.cloudfuji.ajaxy_form.prototype.submit.apply(this, arguments);
   }
 
+  ,submitError:function(jqXHR, text, status){
+    $.cloudfuji.ajaxy_form.prototype.submitError.call(this, data, textStatus, jqXHR);
+    $('#fileupload').enable();
+  }
+
   ,submitSuccess: function(data, textStatus, jqXHR){
     this.option('redirectOnSuccessUrl', '/pets/'+data.data.id);
     $('#fileupload').data('fileupload').option('formData', {pet_id: data.data.id});

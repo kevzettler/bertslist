@@ -6,5 +6,5 @@ class Pet < ActiveRecord::Base
   accepts_nested_attributes_for :pet_images, :reject_if => lambda{|p| p['pet_image'].nil?}
 
   validates :name, :presence => true
-  validates :save_date, :presence => true
+  #validates :save_date, :presence => true
 end

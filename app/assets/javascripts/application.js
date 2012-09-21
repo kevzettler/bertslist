@@ -11,7 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require_tree ./vendor/jquery
+//= require ./vendor/jquery/jquery-ui-1.8.23.custom.min.js
+//= require ./vendor/jquery/jquery.disable.js
 //= require ./formValidator.2.5.5.1/languages/jquery.validationEngine-en.js
 //= require ./formValidator.2.5.5.1/jquery.validationEngine.js
 //= require_tree ./vendor/bootstrap
@@ -63,10 +64,9 @@ function jqXHRMessage(jqXHR){
 
 $(function(){
 
-  // $('.datepicker').datepicker({
-  //   "altFormat": "yy-mm-dd"
-  // });
-
+  $('.datepicker').datepicker({
+    "altFormat": "yy-mm-dd"
+  });
 
   // Initialize the jQuery File PetImage widget:
    $('#pet_form').pet_form();
