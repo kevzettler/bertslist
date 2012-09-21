@@ -3,7 +3,9 @@
     $.widget('cloudfuji.ajaxy_form', {
 	options:{
           promptPosition: "topRight",
-          promptScroll: false
+          promptScroll: false,
+          successpromptPosition: 'topRight',
+          redirectOnSuccessUrl: null,
         }
 
 	,_create: function() {
@@ -54,11 +56,21 @@
   	}
 
 	,submitSuccess: function(data, textStatus, jqXHR){
+            if(typeof this.option('redirectOnSuccessUrl') == 'string'){
+              window.location = this.option('redirectOnSuccessUrl');
+              return;
+            }
+
 	    var message = this.buildResponseMessage(data, textStatus, jqXHR);
-	    
-  	    $('button:last').validationEngine('showPrompt', message, this.checkLoadingStatus(data), 'topRight', true);
+  	    $('button:last').validationEngine('showPrompt', message, this.checkLoadingStatus(data), this.option('successPromptPosition'), true);
 	    this.element.enable();
   	}
+
+        ,clearForm: function(){
+          this.element.find('input').val('');
+          this.element.find('textarea').val('');
+          this.element.find('input:first').focus();
+        }
 
 	,buildAjaxEvent: function(method, action, params){
           console.log("building an ajax event");
@@ -114,11 +126,11 @@
 	    return message;
 	 }
   	
-  	,submit: function(){
-           console.log("ajaxy form submit");
-	    this.buildAjaxEvent(this.element.attr('method'),
-			       this.element.attr('action'),
-			       this.getFormData())();
+  	,submit: function(event){
+	  this.buildAjaxEvent(this.element.attr('method'),
+			      this.element.attr('action'),
+			      this.getFormData())();
+             
           return false;
 	}
 	

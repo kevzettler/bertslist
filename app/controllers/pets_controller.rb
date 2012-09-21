@@ -53,8 +53,9 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
-        format.json { render json: {"message" => "Pet was successfully created", "success" => true, "data" => @pet}, status: :created, location: @pet }
+        session[:message] = "Pet was successfully listed"
+        format.html { redirect_to @pet, notice: 'Pet was successfully listed' }
+        format.json { render json: {"message" => "Pet was successfully listed", "success" => true, "data" => @pet}, status: :created, location: @pet }
       else
         format.html { render action: "new" }
         format.json { render json: @pet.errors, status: :unprocessable_entity }

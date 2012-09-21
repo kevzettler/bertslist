@@ -1,5 +1,7 @@
 var pet_form = {
-  options:{},
+  options:{
+    redirectOnSuccessUrl: null
+  },
 
   _create: function(){
     $.cloudfuji.ajaxy_form.prototype._create.call(this);
@@ -11,6 +13,7 @@ var pet_form = {
   }
 
   ,submitSuccess: function(data, textStatus, jqXHR){
+    this.option('redirectOnSuccessUrl', '/pets/'+data.data.id);
     $('#fileupload').data('fileupload').option('formData', {pet_id: data.data.id});
     $('#global_upload_start').click();
     $('#fileupload').enable();
