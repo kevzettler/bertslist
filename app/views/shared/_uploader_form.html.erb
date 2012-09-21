@@ -112,7 +112,7 @@
     {% } %}
 </script>
 
-<% unless @pet.name.nil? %>
+
 <script type="text/javascript">
 $(function(){
 
@@ -120,6 +120,7 @@ $(function(){
     "acceptFileTypes": /(\.|\/)(gif|jpe?g|png)$/i
   });
 
+<% unless @pet.name.nil? %>
   //Load existing files
   $.getJSON("/pets/<%= @pet.id %>/images", function (files) {
     console.log("cool wot", files);
@@ -135,7 +136,9 @@ $(function(){
     template.addClass('in');
     $('#loading').remove();
   });
+<% end %>
+
 });
 
 </script>
-<% end %>
+
