@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def session_message
     if session[:message]
+      session[:message] = nil
       flash[:notice] = session[:message]
     end
   end
