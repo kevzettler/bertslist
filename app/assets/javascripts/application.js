@@ -10,7 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require ./jquery-1.7.2
+//= require jquery
 //= require_tree ./vendor/jquery
 //= require ./formValidator.2.5.5.1/languages/jquery.validationEngine-en.js
 //= require ./formValidator.2.5.5.1/jquery.validationEngine.js
