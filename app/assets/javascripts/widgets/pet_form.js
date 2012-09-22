@@ -18,6 +18,10 @@ var pet_form = {
   }
 
   ,submitSuccess: function(data, textStatus, jqXHR){
+    if(typeof data.data.id == "undefined"){
+      console.log("no pet id to process images");
+      $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, jqXHR, textStatus, textStatus);
+    }
     this.option('redirectOnSuccessUrl', '/pets/'+data.data.id);
     $('#fileupload').data('fileupload').option('formData', {pet_id: data.data.id});
     $('#global_upload_start').click();
