@@ -11,10 +11,10 @@
       <%= link_to 'Edit', edit_pet_path(pet) %>
       <%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-    <span class='st_facebook_large' displayText='Facebook'></span>
-    <span class='st_twitter_large' displayText='Tweet'></span>
-    <span class='st_email_large' displayText='Email'></span>
-    <span class='st_fbrec_large' displayText='Facebook Recommend'></span>
-    <span class='st_fblike_large' displayText='Facebook Like'></span>
+    <span class='st_facebook_large' displayText='Facebook'  st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>" ></span>
+    <span class='st_twitter_large' displayText='Tweet' st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>"></span>
+    <span class='st_email_large' displayText='Email' st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>"></span>
+    <span class='st_fbrec_large' displayText='Facebook Recommend' st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>"></span>
+    <span class='st_fblike_large' displayText='Facebook Like' st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>"></span>
   </nav>
 </div>
