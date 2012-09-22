@@ -4,8 +4,8 @@ PAPERCLIP_OPTIONS = {
   :styles => {:thumb => "150x150", :large => "300x300"},
   :storage => :s3,
   :s3_credentials => {
-    :access_key_id => ENV['S3_KEY'] 
-    :secret_access_key ENV['S3_SECRET']
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']
   }
   :path           => ':attachment/:id/:style.:extension',
   :bucket         => 'bertslist_photos',
