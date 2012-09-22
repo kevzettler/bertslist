@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery_ujs
 //= require ./vendor/jquery/jquery-ui-1.8.23.custom.min.js
 //= require ./vendor/jquery/jquery.disable.js
 //= require ./formValidator.2.5.5.1/languages/jquery.validationEngine-en.js
