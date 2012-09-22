@@ -1,3 +1,16 @@
+
+
+PAPERCLIP_OPTIONS = {
+  :styles => {:thumb => "150x150", :large => "300x300"},
+  :storage => :s3,
+  :s3_credentials => {
+    :access_key_id => ENV['S3_KEY'] 
+    :secret_access_key ENV['S3_SECRET']
+  }
+  :path           => ':attachment/:id/:style.:extension',
+  :bucket         => 'bertslist_photos',
+}
+
 Bertslist::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -64,4 +77,9 @@ Bertslist::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.assets.initalize_on_precompile = false
+  config.assets.compile = true
+
+
 end

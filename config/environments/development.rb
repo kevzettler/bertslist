@@ -1,3 +1,10 @@
+PAPERCLIP_OPTIONS = {
+  :styles => {:thumb => "150x150", :large => "300x300"},
+  :url => "/images/:class/:attachment/:id/:style_:filename",
+  :path => ":rails_root/public/images/:class/:attachment/:id/:style_:filename"
+}
+
+
 Bertslist::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

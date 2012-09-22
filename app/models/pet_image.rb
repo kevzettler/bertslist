@@ -1,10 +1,6 @@
 class PetImage < ActiveRecord::Base
   belongs_to :pet
-  has_attached_file :photo, {
-    :styles => {:thumb => "150x150", :large => "300x300"},
-    :url => "/images/:class/:attachment/:id/:style_:filename",
-    :path => ":rails_root/public/images/:class/:attachment/:id/:style_:filename"
-  }
+  has_attached_file :photo, PAPERCLIP_OPTIONS
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
