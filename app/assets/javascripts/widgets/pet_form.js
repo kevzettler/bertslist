@@ -23,7 +23,7 @@ var pet_form = {
     
     //strange descrepency between development and production probabl servers 
     if(typeof data.id != "undefined"){ pet_id = data.id; }
-    if(typeof data.data != "undefined"){ pet_id = data.data.id;}
+//    if(typeof data.data != "undefined"){ pet_id = data.data.id;}
 
     if(typeof pet_id == "undefined"){
       $.cloudfuji.ajaxy_form.prototype.submitError.call(this, jqXHR, textStatus, textStatus);
