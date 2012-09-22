@@ -19,12 +19,18 @@ var pet_form = {
 
   ,submitSuccess: function(data, textStatus, jqXHR){
     console.log("omg submit success", data, textStatus, jqXHR);
-    if(typeof data.data == "undefined"){
-      console.log("no pet id to process images");
+    var pet_id;
+    
+    //strange descrepency between development and production probabl servers
+    if(typeof data.id != "undefined"){ pet_id = data.id; }
+    if(typeof data.data != "undefined"){ pet_id = data.data.id;}
+
+    if(typeof pet_id == "undefined"){
       $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, jqXHR, textStatus, textStatus);
     }
+
     this.option('redirectOnSuccessUrl', '/pets/'+data.data.id);
-    $('#fileupload').data('fileupload').option('formData', {pet_id: data.data.id});
+    $('#fileupload').data('fileupload').option('formData', {pet_id: pet_id});
     $('#global_upload_start').click();
     $('#fileupload').enable();
     $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, data, textStatus, jqXHR);

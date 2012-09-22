@@ -7,7 +7,7 @@
   <p><%= pet.notes %></p>
   <nav>
     <%= link_to 'Learn More', pet %>
-    <% if !current_user.nil? and current_user.id == pet.user_id %>
+    <% if !current_user.nil? and (current_user.id == pet.user_id) %>
       <%= link_to 'Edit', edit_pet_path(pet) %>
       <%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
