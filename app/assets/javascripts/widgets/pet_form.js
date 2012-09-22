@@ -21,12 +21,13 @@ var pet_form = {
     console.log("omg submit success", data, textStatus, jqXHR);
     var pet_id;
     
-    //strange descrepency between development and production probabl servers
+    //strange descrepency between development and production probabl servers 
     if(typeof data.id != "undefined"){ pet_id = data.id; }
     if(typeof data.data != "undefined"){ pet_id = data.data.id;}
 
     if(typeof pet_id == "undefined"){
-      $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, jqXHR, textStatus, textStatus);
+      $.cloudfuji.ajaxy_form.prototype.submitError.call(this, jqXHR, textStatus, textStatus);
+      $('#fileupload').enable();
     }
 
     this.option('redirectOnSuccessUrl', '/pets/'+data.data.id);
