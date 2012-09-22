@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+
   # GET /pets
   # GET /pets.json
   def index

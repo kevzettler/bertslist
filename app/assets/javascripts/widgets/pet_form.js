@@ -26,8 +26,10 @@ var pet_form = {
     if(typeof data.data != "undefined"){ pet_id = data.data.id;}
 
     if(typeof pet_id == "undefined"){
+      console.log("no pet id");
       $.cloudfuji.ajaxy_form.prototype.submitError.call(this, jqXHR, textStatus, textStatus);
       $('#fileupload').enable();
+      return;
     }
 
     this.option('redirectOnSuccessUrl', '/pets/'+pet_id);
