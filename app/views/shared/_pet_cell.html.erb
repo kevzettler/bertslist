@@ -3,7 +3,7 @@
   <img class="img-rounded" src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.notes %>" height="150" width="150"/>
   <% end %>
   <h2><%= pet.name %></h2>
-  <p>Age: <%= pet.age %><p>
+  <p>Age: <%= pet.age_years %> Years <%= pet.age_months %> Months <p>
   <p><%= pet.notes %></p>
   <nav>
     <%= link_to 'Learn More', pet %>
