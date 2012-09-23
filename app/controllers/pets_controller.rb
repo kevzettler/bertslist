@@ -50,6 +50,7 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
+    puts "PUTS CREATING PET"
     @pet = Pet.new(params[:pet])
     puts "OMG WHATS CURRENT USER"
     puts current_user.inspect

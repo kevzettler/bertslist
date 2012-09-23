@@ -80,5 +80,5 @@ Bertslist::Application.configure do
 
   config.assets.initalize_on_precompile = false
 
-
+  config.log_level = :debug
 end
