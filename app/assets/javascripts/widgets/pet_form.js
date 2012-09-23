@@ -5,6 +5,17 @@ var pet_form = {
 
   _create: function(){
     $.cloudfuji.ajaxy_form.prototype._create.call(this);
+    $('#fileupload').bind("fileuploadstop", $.proxy(this.fileUploadOnCompleteAll, this));
+  }
+
+  ,enable: function(){
+    $('#pet_form_submit').enable();
+    $('#fileupload').enable();
+  }
+
+  ,fileUploadOnCompleteAll: function(list){
+    $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, {message: "Pet listed Successfully"}, "success", {responseText:{error:"Pet Listed Successfully"}});
+    this.enable();
   }
   
   ,submit: function(){
@@ -14,7 +25,7 @@ var pet_form = {
 
   ,submitError:function(jqXHR, text, status){
     $.cloudfuji.ajaxy_form.prototype.submitError.call(this, data, textStatus, jqXHR);
-    $('#fileupload').enable();
+    this.enable();
   }
 
   ,submitSuccess: function(data, textStatus, jqXHR){
@@ -28,15 +39,14 @@ var pet_form = {
     if(typeof pet_id == "undefined"){
       console.log("no pet id");
       $.cloudfuji.ajaxy_form.prototype.submitError.call(this, jqXHR, textStatus, textStatus);
-      $('#fileupload').enable();
+      this.enable();
       return;
     }
 
     this.option('redirectOnSuccessUrl', '/pets/'+pet_id);
     $('#fileupload').data('fileupload').option('formData', {pet_id: pet_id});
+    console.log("global upload start", pet_id);
     $('#global_upload_start').click();
-    $('#fileupload').enable();
-    $.cloudfuji.ajaxy_form.prototype.submitSuccess.call(this, data, textStatus, jqXHR);
   }
 
 };

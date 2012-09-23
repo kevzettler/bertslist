@@ -56,7 +56,9 @@
   	}
 
 	,submitSuccess: function(data, textStatus, jqXHR){
+          console.log("ajaxy form submitSuccess redirectin?");
             if(typeof this.option('redirectOnSuccessUrl') == 'string'){
+              console.log("redirecting now ");
               window.location = this.option('redirectOnSuccessUrl');
               return;
             }

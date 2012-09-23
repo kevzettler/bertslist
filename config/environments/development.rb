@@ -1,7 +1,18 @@
+# PAPERCLIP_OPTIONS = {
+#   :styles => {:thumb => "150x150", :large => "300x300"},
+#   :url => "/images/:class/:attachment/:id/:style_:filename",
+#   :path => ":rails_root/public/images/:class/:attachment/:id/:style_:filename"
+# }
+
 PAPERCLIP_OPTIONS = {
   :styles => {:thumb => "150x150", :large => "300x300"},
-  :url => "/images/:class/:attachment/:id/:style_:filename",
-  :path => ":rails_root/public/images/:class/:attachment/:id/:style_:filename"
+  :storage => :s3,
+  :s3_credentials => {
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  },
+  :path           => ':attachment/:id/:style.:extension',
+  :bucket         => 'bertslist_photos',
 }
 
 
@@ -37,10 +48,10 @@ Bertslist::Application.configure do
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Do not compress assets
-  config.assets.compress = true
+  config.assets.compress = false
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
 end

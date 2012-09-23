@@ -20,6 +20,10 @@
 //= require jquery-fileupload
 //= require_tree ./widgets
 
+if(typeof window.console == 'undefined'){
+  window.console = function(){return false;};
+}
+
 /*
 * Awesome helper function for validationEngine great for use with
 * autobox checks that a field is not the default value before
@@ -73,6 +77,7 @@ $(function(){
    $('#pet_form').pet_form();
 
   $('#pet_form_submit').click(function(event){
+    $(event.target).disable();
     $('#pet_form').submit();
     return false;
   });

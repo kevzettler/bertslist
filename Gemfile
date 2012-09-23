@@ -26,6 +26,7 @@ group :assets do
 end
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "aws-sdk"
 gem 'jquery-rails'
 gem "jquery-fileupload-rails"
 
