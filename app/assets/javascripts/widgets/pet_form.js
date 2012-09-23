@@ -24,7 +24,7 @@ var pet_form = {
   }
 
   ,submitError:function(jqXHR, text, status){
-    $.cloudfuji.ajaxy_form.prototype.submitError.call(this, data, textStatus, jqXHR);
+    $.cloudfuji.ajaxy_form.prototype.submitError.call(this, jqXHR, text, status);
     this.enable();
   }
 

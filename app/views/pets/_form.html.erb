@@ -11,7 +11,6 @@
     </div>
   <% end %>
 
-  <input type="hidden" name="pet[user_id]" value="<%= current_user.id %>" />
 
   <div class="field">
     <%= f.label :name %>
@@ -28,6 +27,7 @@
     <%= f.label :age %>
     <%= f.number_field :age %>
   </div>
+
   <div class="field">
     <%= f.label :notes %>
     <%= f.text_area :notes, :rows => '10' %>
@@ -36,5 +36,5 @@
 <% end %>
   <%= render 'shared/uploader_form' %> 
 
-<button type="button" id="pet_form_submit">Submit</button>
+<button class="btn btn-success" type="button" id="pet_form_submit">Submit</button>
 

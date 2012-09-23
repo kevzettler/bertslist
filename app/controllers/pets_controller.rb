@@ -52,17 +52,8 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
-    logger.debug "LOGGER.DEBUG CREATING PET"
     @pet = Pet.new(params[:pet])
-    logger.debug "OMG WHATS CURRENT USER"
-    logger.debug current_user.inspect
-    logger.debug current_user.id
     @pet.user_id = current_user.id
-    logger.debug @pet.user_id
-    logger.info "anything logs??? info"
-    logger.warn "anything logs??? warn"
-    logger.error "anything logs??? error"
-    logger.fatal "anything logs??? fatal"
 
     respond_to do |format|
       if @pet.save

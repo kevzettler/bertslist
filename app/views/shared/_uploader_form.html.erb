@@ -5,7 +5,7 @@
     <div class="row fileupload-buttonbar">
       <div class="span7">
         <!-- The fileinput-button span is used to style the file input field as button -->
-        <span class="btn btn-success fileinput-button">
+        <span class="btn btn-primary fileinput-button">
           <i class="icon-plus icon-white"></i>
           <span>Add Photos...</span>
           <%= f.file_field :photo %>
@@ -31,9 +31,10 @@
         </div>
       </div>
     </div>
+
     <!-- The loading indicator is shown during image processing -->
     <div class="fileupload-loading"></div>
-    <br>
+
     <!-- The table listing the files available for upload/download -->
     <table class="table table-striped" style="width:auto !important;"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
     </table>
