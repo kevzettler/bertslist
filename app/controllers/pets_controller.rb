@@ -34,6 +34,7 @@ class PetsController < ApplicationController
   # GET /pets/new
   # GET /pets/new.json
   def new
+    puts "pets new!"
     @pet = Pet.new
     
     respond_to do |format|
