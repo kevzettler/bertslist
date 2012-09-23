@@ -1,5 +1,5 @@
 class PetSpecies < ActiveRecord::Base
-  belongs_to :pet
+  has_many :pets
   attr_accessible :name
   
 end

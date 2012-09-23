@@ -44,20 +44,22 @@ ActiveRecord::Schema.define(:version => 20120923191527) do
 
   create_table "pet_species", :force => true do |t|
     t.string   "name"
-    t.integer  "pet_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "pets", :force => true do |t|
     t.string   "name"
-    t.integer  "age"
+    t.integer  "age_years"
+    t.integer  "age_months"
+    t.boolean  "age_confirmed"
+    t.boolean  "nokill",         :default => false
     t.text     "notes"
-    t.text     "photo_urls"
     t.date     "save_date"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "pet_species_id"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -29,14 +29,21 @@
     <%= f.label :save_date %>
     <p>
       <%= f.text_field :save_date, :class => "datepicker" %>
-      <label for="pet[nokill]">no kill</label><input type="checkbox" name="pet[nokill]" id="pet[nokill]" />
+      <!-- <label for="pet[nokill]">no kill</label><input type="checkbox"  id="pet[nokill]" /> -->
     </p>
     <span>If the pet is going to be Euthanized</span>
   </div>
 
-  <div class="field">
+  <div class="field" id="age_fields">
     <%= f.label :age %>
-    <%= f.number_field :age %>
+    <%= f.number_field :age_years %>
+    <%= f.number_field :age_months %>
+    <select name="pet[age_confirmed]">
+      <option value="true">Exactly</option>
+      <option value="false">Approximately</option>
+    </select>
+    <br />
+    <span>Years</span><span>Months</span>
   </div>
 
   <div class="field">
