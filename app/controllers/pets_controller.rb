@@ -35,6 +35,7 @@ class PetsController < ApplicationController
   # GET /pets/new.json
   def new
     puts "pets new!"
+    logger.debug "LOL LOGGER"
     @pet = Pet.new
     
     respond_to do |format|
@@ -51,13 +52,13 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
-    puts "PUTS CREATING PET"
+    logger.debug "LOGGER.DEBUG CREATING PET"
     @pet = Pet.new(params[:pet])
-    puts "OMG WHATS CURRENT USER"
-    puts current_user.inspect
-    puts current_user.id
+    logger.debug "OMG WHATS CURRENT USER"
+    logger.debug current_user.inspect
+    logger.debug current_user.id
     @pet.user_id = current_user.id
-    puts @pet.user_id
+    logger.debug @pet.user_id
 
     respond_to do |format|
       if @pet.save
