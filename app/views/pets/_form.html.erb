@@ -12,10 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :species %>
-    <select name="pet[species]">
-      <option value="cat">Cat</option>
-      <option value="dog">Dog</option>
+    <%= f.label :pet_species, "Animal" %>
+    <select name="pet[pet_species_id]">
+      <% PetSpecies.all.each do |ps| %>
+      <option value="<%= ps.id %>"><%= ps.name %></option>
+       <% end %>
     </select>
   </div>
 

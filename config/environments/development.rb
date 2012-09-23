@@ -1,19 +1,19 @@
-# PAPERCLIP_OPTIONS = {
-#   :styles => {:thumb => "150x150", :large => "300x300"},
-#   :url => "/images/:class/:attachment/:id/:style_:filename",
-#   :path => ":rails_root/public/images/:class/:attachment/:id/:style_:filename"
-# }
-
 PAPERCLIP_OPTIONS = {
   :styles => {:thumb => "150x150", :large => "300x300"},
-  :storage => :s3,
-  :s3_credentials => {
-    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  },
-  :path           => ':attachment/:id/:style.:extension',
-  :bucket         => 'bertslist_photos',
+  :url => "/images/:class/:attachment/:id/:style_:filename",
+  :path => ":rails_root/public/images/:class/:attachment/:id/:style_:filename"
 }
+
+# PAPERCLIP_OPTIONS = {
+#   :styles => {:thumb => "150x150", :large => "300x300"},
+#   :storage => :s3,
+#   :s3_credentials => {
+#     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+#     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+#   },
+#   :path           => ':attachment/:id/:style.:extension',
+#   :bucket         => 'bertslist_photos',
+# }
 
 
 Bertslist::Application.configure do
