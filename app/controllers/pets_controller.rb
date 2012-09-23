@@ -51,7 +51,11 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(params[:pet])
+    puts "OMG WHATS CURRENT USER"
+    puts current_user.inspect
+    puts current_user.id
     @pet.user_id = current_user.id
+    puts @pet.user_id
 
     respond_to do |format|
       if @pet.save
