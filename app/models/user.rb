@@ -10,10 +10,21 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid
-  # attr_accessible :title, :body
+  attr_accessor :affiliate
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :affiliate
 
   validates :email, :presence => true
+
+  before_create :check_affiliate
+
+  def check_affiliate
+    puts "check affiliate"
+    puts self.inspect
+    if self.affiliate == 'on'
+      puts "new affiliate signed up!"
+      #send email to admins
+    end
+  end
 
   def verified?
     true

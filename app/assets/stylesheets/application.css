@@ -16,3 +16,9 @@
  *= require pets
  *= require jquery.fileupload-ui
  */
+
+
+#shelter_or_rescue{overflow:hidden;}
+#shelter_or_rescue p {overflow:hidden;}
+#shelter_or_rescue p label{margin-right: 15px;}
+#shelter_or_rescue p *{float: left;}

@@ -12,6 +12,11 @@
   <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
 
+  <div id="shelter_or_rescue">
+    <label>Are you afilliated with a Shelter or Rescue Program?</label>
+    <p><label for="user[affiliate]">Yes</label> <input type="checkbox" name="user[affiliate]" id="user[affiliate]" /></p>
+  </div>
+
   <div><%= f.submit "Sign up", :class => "btn btn-success" %></div>
 <% end %>
 
