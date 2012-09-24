@@ -13,8 +13,9 @@
   <li><a href="<%= new_user_session_url %>">Sign In</a></li>
   <% else %>
   <li><a href="<%= edit_user_registration_path %>">Profile</a></li>
-  <% if current_user.verified? %>
-    <li><a href="<%= users_pets_path(current_user) %>">Pet List</a></li>
+  <li><a href="<%= new_pet_path %>">List a Pet</a></li>
+  <% if current_user.pets.count > 0 %>
+  <li><a href="<%= users_pets_path(current_user) %>">Your Pets</a></li>
   <% end %>
   <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
   <% end %>

@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120924010901) do
 
   create_table "addresses", :force => true do |t|
+    t.string   "name"
     t.string   "line1"
     t.string   "line2"
     t.string   "city"

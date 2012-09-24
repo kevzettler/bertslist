@@ -34,8 +34,10 @@ class PetsController < ApplicationController
   # GET /pets/new
   # GET /pets/new.json
   def new
-    puts "pets new!"
-    logger.debug "LOL LOGGER"
+    unless current_user.verified?
+      return redirect_to "/users/verify"
+    end
+
     @pet = Pet.new
     
     respond_to do |format|

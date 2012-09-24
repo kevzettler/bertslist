@@ -2,7 +2,7 @@
   <% unless pet.pet_images.first.nil? %>
   <img class="img-rounded" src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.notes %>" height="150" width="150"/>
   <% end %>
-  <h2><%= pet.name %></h2>
+  <h2><%= pet.name %> The <%= pet.pet_species.name %></h2>
   <p>Age: <%= pet.age_years %> Years <%= pet.age_months %> Months <p>
   <p><%= pet.notes %></p>
   <nav>
