@@ -2,6 +2,7 @@ class Pet < ActiveRecord::Base
   belongs_to :user
   belongs_to :pet_species
   has_many :pet_images, :dependent => :destroy
+  acts_as_taggable_on :breeds
   
   attr_accessible :name, :notes, :images, :save_date, :pet_species_id, :nokill,
   :age_years, :age_months, :age_confirmed
