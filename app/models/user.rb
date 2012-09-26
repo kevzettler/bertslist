@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
   def verified?
-    self.flag_list.include? "verified"
+    self.flag_list.include? "verified" and !self.address.nil?
   end
 
   def admin?
