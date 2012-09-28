@@ -4,7 +4,7 @@ class PetImage < ActiveRecord::Base
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
-  attr_accessible :photo
+  attr_accessible :photo, :content_type, :photo_file_name, :file_name, :file_size, :pet_id, :photo_content_type, :photo_file_size, :photo_updated_at
 
   include Rails.application.routes.url_helpers
 

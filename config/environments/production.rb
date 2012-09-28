@@ -1,7 +1,7 @@
 
 
 PAPERCLIP_OPTIONS = {
-  :styles => {:thumb => "150x150", :large => "300x300"},
+  :styles => {:thumb => "x150", :large => "300x300>"},
   :storage => :s3,
   :s3_credentials => {
     :access_key_id => ENV['S3_KEY'],

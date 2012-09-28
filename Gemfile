@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.8' 
 gem 'thin'
 
 gem 'pg'
@@ -25,4 +25,9 @@ gem 'jquery-rails'
 gem "jquery-fileupload-rails"
 
 gem 'acts-as-taggable-on', '~> 2.3.1'
+
+# DB cloning and replication
+gem 'heroku'
+gem 'taps'
+gem 'replicate'
 

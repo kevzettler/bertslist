@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20120924010901) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
+    t.string   "lat"
+    t.string   "long"
     t.integer  "addressable_id"
     t.string   "addressable_type"
     t.datetime "created_at",       :null => false
