@@ -16,7 +16,19 @@ class User < ActiveRecord::Base
 
   validates :email, :presence => true
 
+  replicate_associations :pets, :flags
+
   before_create :check_affiliate
+
+  #def dump_replicant(dumper)
+  #  attributes = self.attributes
+  #  attributes["flag_list"] = self.flag_list
+  #  attributes["pets"] = self.pets
+  #  attributes["address"] = self.address
+  #  puts "dumpin"
+  #  puts attributes.inspect
+  #  dumper.write self.class, id, attributes, self
+  #end
 
   def check_affiliate
     puts "check affiliate"

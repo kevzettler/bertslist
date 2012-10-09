@@ -9,4 +9,6 @@ class Pet < ActiveRecord::Base
   accepts_nested_attributes_for :pet_images, :reject_if => lambda{|p| p['pet_image'].nil?}, :allow_destroy => true
 
   validates :name, :presence => true
+
+  replicate_associations :pet_images
 end

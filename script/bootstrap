@@ -1,12 +1,23 @@
 #1/bin/bash
-DEPENDENCIES=""
+DEPENDENCIES="postgres"
+
+for dep in $DEPENDENCIES
+	do
+		if ! which $dep &>/dev/null;  then
+			echo "bertslist requires $dep to run but it is not installed."
+		fi
+done
 
 if ! ls ./config/database.yml &>/dev/null; then
 	echo -e "\n you need to create ./config/database.yml with appropriate settings before continuing \n"
 	exit 1
 fi
 
+if which rvm &>/dev/null; then	
+	rvm use 1.9.3@bertslist
+fi
+
 bundle install
 rake db:drop db:create db:migrate
-replicate -r ./config/environment -l < ./db/replicate/pet.dump
-echo -e "\nbertslist is bootstrapped! To run type:\n bundle exec rails s \n"
+replicate -r ./config/environment -l < ./db/replicate/bootstrap.dump
+echo -e "\nbertslist is bootstrapped! To run type:\n bundle exec rails s -p 5000 \n"
