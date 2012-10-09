@@ -40,7 +40,7 @@ production:
   tiemout: 5000
 ```
 
-Run the bootstrap script
+Assuming that you are in the bertslist project directory. Run the bootstrap script
 
 ```bash
 script/bootstrap
