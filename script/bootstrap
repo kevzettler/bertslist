@@ -2,11 +2,11 @@
 DEPENDENCIES=""
 
 if ! ls ./config/database.yml &>/dev/null; then
-	echo "you need to create ./config/database.yml with appropriate settings before continuing"
+	echo -e "\n you need to create ./config/database.yml with appropriate settings before continuing \n"
 	exit 1
 fi
 
 bundle install
 rake db:drop db:create db:migrate
 replicate -r ./config/environment -l < ./db/replicate/pet.dump
-echo "bertslist is bootstrapped. to run type bundle exec rails s"
+echo -e "\nbertslist is bootstrapped! To run type:\n bundle exec rails s \n"
