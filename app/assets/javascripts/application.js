@@ -75,10 +75,4 @@ $(function(){
 
   // Initialize the jQuery File PetImage widget:
    $('#pet_form').pet_form();
-
-  $('#pet_form_submit').click(function(event){
-    $(event.target).disable();
-    $('#pet_form').submit();
-    return false;
-  });
 });

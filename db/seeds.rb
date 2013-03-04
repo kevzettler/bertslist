@@ -39,8 +39,6 @@ Pet.all.each do |p|
 
   image = PetImage.new()
   image.pet_id = p.id
-  image
-  image.
 
   p.save
 end

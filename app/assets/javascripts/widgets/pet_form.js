@@ -4,6 +4,8 @@ var pet_form = {
   },
 
   _create: function(){
+    $('#pet_form_submit').click($.proxy(this.submitButtonClick, this));
+
     $.cloudfuji.ajaxy_form.prototype._create.call(this);
     $('#fileupload').bind("fileuploadstop", $.proxy(this.fileUploadOnCompleteAll, this));
   }
@@ -11,6 +13,12 @@ var pet_form = {
   ,enable: function(){
     $('#pet_form_submit').enable();
     $('#fileupload').enable();
+  }
+
+  ,submitButtonClick: function(event){
+    $(event.target).disable();
+    this.element.submit();
+    return false;
   }
 
   ,fileUploadOnCompleteAll: function(list){

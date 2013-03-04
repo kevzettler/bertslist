@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8' 
+gem 'rails', '3.2.11'
 gem 'thin'
 
 gem 'pg'
@@ -31,3 +31,5 @@ gem 'heroku'
 gem 'taps'
 gem 'replicate'
 
+# Static Content
+gem 'jekyll'
