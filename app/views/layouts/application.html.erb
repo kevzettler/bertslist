@@ -11,8 +11,9 @@
 </head>
 <body>
 
+<%= render "shared/global_head_nav" %>
+
 <div class="container">
-  
   <% if notice %>
   <div class="notice"><%= notice %></div>
   <% end %>
@@ -21,9 +22,6 @@
   <% end %>
 
   <div class="row">
-    <div class="span4">
-      <%= render "shared/sidebar" %>
-    </div>
     <div class="span8">
       <%= yield %>
     </div>
