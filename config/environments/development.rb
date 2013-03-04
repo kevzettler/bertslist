@@ -1,12 +1,12 @@
 PAPERCLIP_OPTIONS = {
- :styles => {:thumb => "150x150", :large => "300x300"},
+ :styles => {:thumb => "150x150#", :large => "300x300#"},
  :url => "/images/:class/:attachment/:id/:style_:filename",
  :path => ":rails_root/public/images/:class/:attachment/:id/:style_:filename"
 }
 
-#djung@egnyte.com
+#
 #PAPERCLIP_OPTIONS = {
-#  :styles => {:thumb => "150x150", :large => "300x300"},
+#  :styles => {:thumb => "150x150#", :large => "300x300#"},
 #  :storage => :s3,
 #  :s3_credentials => {
 #    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
