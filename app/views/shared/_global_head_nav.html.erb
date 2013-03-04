@@ -6,9 +6,18 @@
           <ul class="nav">
               <% unless current_user %>
               <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
-              <li><a href="<%= new_user_session_url %>">Sign In</a></li>
+              <li><a href="<%= new_user_session_url %>">Log In</a></li>
               <% else %>
-              <li><a href="<%= edit_user_registration_path %>">Profile</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= current_user.email %>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="<%= edit_user_registration_path %>">Your Account</a></li>
+                  <li><a href="<%= destroy_user_session_url %>">Log Out</a></li>
+                </ul>
+              </li>
               <li><a href="<%= new_pet_path %>">List a Pet</a></li>
               <% if current_user.pets.count > 0 %>
               <li><a href="<%= users_pets_path(current_user) %>">Your Pets</a></li>

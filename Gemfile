@@ -22,7 +22,7 @@ end
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "aws-sdk"
 gem 'jquery-rails'
-gem "jquery-fileupload-rails"
+gem "jquery-fileupload-rails", '0.3.4'
 
 gem 'acts-as-taggable-on', '~> 2.3.1'
 
@@ -33,3 +33,6 @@ gem 'replicate'
 
 # Static Content
 gem 'jekyll'
+
+# Security
+gem 'fast-aes'

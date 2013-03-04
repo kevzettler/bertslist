@@ -73,6 +73,9 @@ $(function(){
     "altFormat": "yy-mm-dd"
   });
 
+  // Bootstrap drop downs
+  $('.dropdown-toggle').dropdown();
+
   // Initialize the jQuery File PetImage widget:
    $('#pet_form').pet_form();
 });
