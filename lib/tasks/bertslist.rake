@@ -51,10 +51,6 @@ namespace :bertslist do
 
       Dir.chdir(File.dirname(__FILE__) +"/../../jekyll/_layouts")
 
-      puts "oooh yeah"
-      puts Dir.pwd
-      puts Dir.glob("*.html")
-
       Dir.glob("*.html").each do |layout|
         puts "generating layout for #{layout}"
         File.open(Dir.pwd+"/"+layout, 'w+') do |f|
