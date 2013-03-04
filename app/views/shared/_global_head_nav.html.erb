@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">Bertslist</a>
+      <div class="nav-collapse collapse">
+          <ul class="nav">
+              <% unless current_user %>
+              <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
+              <li><a href="<%= new_user_session_url %>">Sign In</a></li>
+              <% else %>
+              <li><a href="<%= edit_user_registration_path %>">Profile</a></li>
+              <li><a href="<%= new_pet_path %>">List a Pet</a></li>
+              <% if current_user.pets.count > 0 %>
+              <li><a href="<%= users_pets_path(current_user) %>">Your Pets</a></li>
+              <% end %>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+              <% end %>
+          </ul>
+      </div>
+  </div>
+</div>
+</div>
+
