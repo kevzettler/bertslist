@@ -1,0 +1,11 @@
+---
+layout: default
+title: Bertslist Blog
+---
+<h1>Bertslist Blog</h1>
+{% for post in site.posts %}
+  <div>
+    <td><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></td>
+    <td>{{ post.date | date_to_string }}</td>
+  </div>
+{% endfor %}

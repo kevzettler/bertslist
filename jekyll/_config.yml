@@ -1,0 +1,3 @@
+baseurl: /blog
+destination: ../public/blog
+markdown: kramdown
