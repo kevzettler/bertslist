@@ -1,11 +1,13 @@
 Bertslist::Application.routes.draw do
   resources :addresses
-  match 'users/verify' => 'addresses#new'
+  match 'users/verify' => 'addresses#new', :as => :users_verify
 
   resources :pets
   resources :pet_images
 
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => "users/omniauth_callbacks"
+  }
 
   resources :users
   match 'users/:id/pets' => 'users#pets', :as => :users_pets
