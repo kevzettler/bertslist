@@ -1,7 +1,7 @@
 <h1>Pets Near You That Need Help</h1>
 
 <% @pets.each do |pet| %>
-	<% if !pet.user.nil? and pet.user.verified? %>
+	<% if !pet.organization.nil? and pet.organization.verified? %>
 	<%= render :partial => "shared/pet_cell", :locals => {:pet => pet} %>
 	<% end %>
 <% end %>

@@ -21,16 +21,6 @@ class User < ActiveRecord::Base
 
   before_create :check_affiliate
 
-  #def dump_replicant(dumper)
-  #  attributes = self.attributes
-  #  attributes["flag_list"] = self.flag_list
-  #  attributes["pets"] = self.pets
-  #  attributes["address"] = self.address
-  #  puts "dumpin"
-  #  puts attributes.inspect
-  #  dumper.write self.class, id, attributes, self
-  #end
-
   def check_affiliate
     puts "check affiliate"
     puts self.inspect
@@ -39,10 +29,6 @@ class User < ActiveRecord::Base
       self.flag_list = self.flag_list.push('affiliate')
       #send email to admins
     end
-  end
-
-  def verified?
-    self.flag_list.include? "verified" and !self.organization.nil?
   end
 
   def admin?
