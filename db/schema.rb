@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306052510) do
+ActiveRecord::Schema.define(:version => 20130309050323) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "name"
     t.string   "line1"
     t.string   "line2"
     t.string   "city"
@@ -30,6 +29,12 @@ ActiveRecord::Schema.define(:version => 20130306052510) do
   end
 
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "pet_images", :force => true do |t|
     t.integer  "pet_id"
@@ -54,16 +59,16 @@ ActiveRecord::Schema.define(:version => 20130306052510) do
 
   create_table "pets", :force => true do |t|
     t.string   "name"
-    t.integer  "age_years",      :default => 0
-    t.integer  "age_months",     :default => 0
-    t.boolean  "age_confirmed",  :default => true
-    t.boolean  "nokill",         :default => false
+    t.integer  "age_years",       :default => 0
+    t.integer  "age_months",      :default => 0
+    t.boolean  "age_confirmed",   :default => true
+    t.boolean  "nokill",          :default => false
     t.text     "notes"
     t.date     "save_date"
-    t.integer  "user_id"
     t.integer  "pet_species_id"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "organization_id"
   end
 
   create_table "taggings", :force => true do |t|
@@ -98,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130306052510) do
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.integer  "organization_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

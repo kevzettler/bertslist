@@ -1,8 +1,8 @@
-class User < ActiveRecord::Base
-  has_one :address, :as => :addressable
-  has_many :pets
-  accepts_nested_attributes_for :address
+class User < ActiveRecord::Base  
   acts_as_taggable_on :flags
+
+  belongs_to :organization
+  has_many :pets, :through => :organization
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -12,11 +12,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessor :affiliate
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :affiliate
+  attr_accessible :email, :password, :password_confirmation, 
+                  :remember_me, :provider, :uid, :affiliate
 
   validates :email, :presence => true
 
-  replicate_associations :pets, :flags
+  replicate_associations :flags
 
   before_create :check_affiliate
 
@@ -41,7 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def verified?
-    self.flag_list.include? "verified" and !self.address.nil?
+    self.flag_list.include? "verified" and !self.organization.nil?
   end
 
   def admin?

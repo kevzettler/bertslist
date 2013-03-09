@@ -1,5 +1,5 @@
 class Pet < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :organization
   belongs_to :pet_species
   has_many :pet_images, :dependent => :destroy
   acts_as_taggable_on :breeds
