@@ -40,29 +40,29 @@ function checkDefault(field, rules, i, options){
 * ajax error callbacks
 */
 function jqXHRMessage(jqXHR){
-    var text = ""
-    ,key_count = 0
-    ,index
-    ;
+  var text = ""
+  ,key_count = 0
+  ,index
+  ;
   
-    try{    
-	var  json = JSON.parse(jqXHR.responseText);
-    }catch(ex){
-	var json = {error: "Sorry! there was an error procesing your request. <br />We'll fix this as soon as possible. Please try later. "};
-    }
+  try{    
+	  var  json = JSON.parse(jqXHR.responseText);
+  }catch(ex){
+	  var json = {error: "Sorry! there was an error procesing your request. <br />We'll fix this as soon as possible. Please try later. "};
+  }
   
       
-    for(key in json){
-	key_count+=1;
-	text += key + " " + json[key] + "\n";
-    }
+  for(key in json){
+	  key_count+=1;
+	  text += key + " " + json[key] + "\n";
+  }
   
-    if(key_count == 1){
-	index = text.indexOf(' ');
-	text = text.substring(index);
-    }
+  if(key_count == 1){
+	  index = text.indexOf(' ');
+	  text = text.substring(index);
+  }
   
-    return text;
+  return text;
 };
 
 
@@ -77,5 +77,8 @@ $(function(){
   $('.dropdown-toggle').dropdown();
 
   // Initialize the jQuery File PetImage widget:
-   $('#pet_form').pet_form();
+  $('#pet_form').pet_form();
+  $('.ajaxy_form').ajaxy_form({
+    defaultSubmit: true
+  });
 });

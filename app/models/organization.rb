@@ -4,7 +4,7 @@ class Organization < ActiveRecord::Base
   has_many :users
   has_many :pets
   accepts_nested_attributes_for :address
-  attr_accessible :name 
+  attr_accessible :name,:phone,:email
   replicate_associations :pets, :flags
 
   def verified?

@@ -1,6 +1,6 @@
 Bertslist::Application.routes.draw do
   resources :addresses
-  match 'users/verify' => 'addresses#new', :as => :users_verify
+  #match 'users/verify' => 'addresses#new', :as => :users_verify
 
   resources :pets
   resources :pet_images
@@ -10,6 +10,7 @@ Bertslist::Application.routes.draw do
   }
 
   resources :users
+  resources :organizations
   match 'users/:id/pets' => 'users#pets', :as => :users_pets
   match 'pets/:id/images' => 'pets#images', :as => :pets_images
 

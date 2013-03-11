@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-      users_verify_path
+      new_organization_path
   end
 end

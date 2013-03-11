@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309050323) do
+ActiveRecord::Schema.define(:version => 20130310190235) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20130309050323) do
     t.string   "addressable_type"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "phone"
   end
 
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
@@ -34,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20130309050323) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "phone"
+    t.string   "email"
   end
 
   create_table "pet_images", :force => true do |t|
