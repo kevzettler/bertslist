@@ -34,11 +34,8 @@ class PetsController < ApplicationController
   # GET /pets/new
   # GET /pets/new.json
   def new
-    unless current_user.organization.verified?
-      return redirect_to new_organization_path
-    end
-
     @pet = Pet.new
+    @craigslist = ThirdParty.new
     
     respond_to do |format|
       format.html # new.html.erb

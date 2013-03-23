@@ -34,5 +34,9 @@ gem 'replicate'
 # Static Content
 gem 'jekyll'
 
+gem 'resque', "~> 1.22.0"
+
 # Security
-gem 'fast-aes'
+gem 'encryptor', :require => false
+
+gem 'capybara', :require => false

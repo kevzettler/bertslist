@@ -56,4 +56,10 @@ Bertslist::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # config.petfinder = {
+  #   :API_KEY => "0daa8f92f359d382d9ea07c97d0ff312",
+  #   :API_Secret => "48811f0779211d3a469de637459c5fc5"
+  # }
+  
 end

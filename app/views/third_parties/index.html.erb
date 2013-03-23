@@ -1,0 +1,27 @@
+<h1>Listing third_parties</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @third_parties.each do |third_party| %>
+  <tr>
+    <td><%= third_party.name %></td>
+    <td><%= third_party.username %></td>
+    <td><%= third_party.password %></td>
+    <td><%= link_to 'Show', third_party %></td>
+    <td><%= link_to 'Edit', edit_third_party_path(third_party) %></td>
+    <td><%= link_to 'Destroy', third_party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Third party', new_third_party_path %>

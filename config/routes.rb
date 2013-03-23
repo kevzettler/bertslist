@@ -1,4 +1,7 @@
 Bertslist::Application.routes.draw do
+  resources :third_parties
+
+
   resources :addresses
   #match 'users/verify' => 'addresses#new', :as => :users_verify
 
