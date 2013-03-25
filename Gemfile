@@ -18,6 +18,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+    gem 'guard'
+    gem 'guard-resque'
+    gem 'rb-fsevent', '~> 0.9'
+end
+
 # Photo uploads
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "aws-sdk"
@@ -34,9 +40,10 @@ gem 'replicate'
 # Static Content
 gem 'jekyll'
 
+# Work
 gem 'resque', "~> 1.22.0"
+gem 'capybara', :require => false
 
 # Security
 gem 'encryptor', :require => false
 
-gem 'capybara', :require => false

@@ -1,13 +1,15 @@
-<div class="span4">
-    <h1>Add a new pet</h1>
-    <%= render 'form' %>
-</div> 
+<div class="row">
+    <div class="span4">
+        <h1>Add a new pet</h1>
+        <%= render 'form' %>
+    </div> 
 
 
-<div class="span5">
-    <h2>Cross promotion</h2>
-    <%= form_for(@craigslist) do |f| %>
+    <div class="span5">
+        <h2>Cross promotion</h2>
+        <%= form_for(@craigslist) do |f| %>
         <legend></legend>
         <%= render :partial => "third_parties/fields", :locals => {:f => f, :third_party_name => "craigslist"} %>
-    <% end %>
+        <% end %>
+    </div>
 </div>

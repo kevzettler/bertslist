@@ -11,4 +11,8 @@ class Pet < ActiveRecord::Base
   validates :name, :presence => true
 
   replicate_associations :pet_images
+
+  def craigslist_post
+    Resque.enqueue(Craigslist)
+  end
 end
