@@ -20,7 +20,8 @@ class PetImage < ActiveRecord::Base
   end
 
   def to_base64
-    ActiveSupport::Base64.encode64(open(self.photo.url) { |io| io.read })
+    url = (self.photo.url.include?('http://')) ? self.photo.url : "http://localhost:5000"+self.photo.url
+    ActiveSupport::Base64.encode64(open(url) { |io| io.read })
   end
 
   def data_uri
