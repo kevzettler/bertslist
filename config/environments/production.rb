@@ -21,6 +21,9 @@ ActionMailer::Base.smtp_settings = {
 ActionMailer::Base.delivery_method = :smtp
 
 Bertslist::Application.configure do
+  config.fb_app_id = ENV['FB_APP_ID']
+  config.fb_app_secret = ENV['FB_APP_Secret']
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
