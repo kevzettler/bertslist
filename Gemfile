@@ -9,6 +9,8 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
 
+gem 'newrelic_rpm'
+
 # Gems used only for assets and not required
 # in production environments by default.
  gem 'sass', '~> 3.1.0'
