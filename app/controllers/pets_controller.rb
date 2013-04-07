@@ -47,7 +47,9 @@ class PetsController < ApplicationController
   # GET /pets/new.json
   def new
     @pet = Pet.new
+    @breeds = [::Bertslist::Breeds::Cat, ::Bertslist::Breeds::Dog];
     @craigslist = ThirdParty.new
+
     
     respond_to do |format|
       format.html # new.html.erb

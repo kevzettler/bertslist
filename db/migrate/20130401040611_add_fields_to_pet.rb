@@ -19,7 +19,7 @@ class AddFieldsToPet < ActiveRecord::Migration
     add_column :pets, :status, :text
     add_column :pets, :intake_date, :datetime
     add_column :pets, :special_notes, :text
-    # another pet the animail is paired with,
+    # another pet the animal is paired with,
     add_column :pets, :bonded_pair_with, :integer
     add_column :pets, :animal_id, :integer
     add_column :pets, :cruelty_case, :boolean
@@ -30,7 +30,7 @@ class AddFieldsToPet < ActiveRecord::Migration
     add_column :pets, :behavior_attributes, :string
     add_column :pets, :health_prognosis, :string
     add_column :pets, :known_health_issues, :string
-    add_column :pets, :meidations_treaments, :string
+    add_column :pets, :medications_treaments, :string
     add_column :pets, :dietary_restrictions, :string
     add_column :pets, :felv_status, :string
     add_column :pets, :fiv_status, :string

@@ -11,36 +11,7 @@
     </div>
   <% end %>
 
-
-  <%= f.label :pet_species, "Species" %>
-  <select name="pet[pet_species_id]">
-      <% PetSpecies.all.each do |ps| %>
-      <option value="<%= ps.id %>"><%= ps.name %></option>
-      <% end %>
-  </select>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, :class =>"validate[required]" %>
-
-  <%= f.label :save_date %>
-  <%= f.text_field :save_date, :class => "datepicker" %>
-  <!-- <label for="pet[nokill]">no kill</label><input type="checkbox"  id="pet[nokill]" /> -->
-  <span class="help-block">If the pet is going to be Euthanized</span>
-
-
-  <%= f.label :age %>
-  <%= f.number_field :age_years %>
-  <%= f.number_field :age_months %>
-  <select name="pet[age_confirmed]">
-      <option value="true">Exactly</option>
-      <option value="false">Approximately</option>
-  </select>
-  <br />
-  <span>Years</span><span>Months</span>
-
-
-  <%= f.label :notes %>
-  <%= f.text_area :notes, :rows => '10' %>
+  <%= render :partial => "pets/fields", :locals => {:f => f} %>
 
 <% end %>
   <%= render 'shared/uploader_form' %> 

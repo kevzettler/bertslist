@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20130401040611) do
     t.string   "behavior_attributes"
     t.string   "health_prognosis"
     t.string   "known_health_issues"
-    t.string   "meidations_treaments"
+    t.string   "medications_treaments"
     t.string   "dietary_restrictions"
     t.string   "felv_status"
     t.string   "fiv_status"
