@@ -29,9 +29,9 @@ class AddFieldsToPet < ActiveRecord::Migration
     add_column :pets, :original_owner, :text
     add_column :pets, :behavior_attributes, :string
     add_column :pets, :health_prognosis, :string
-    add_column :pets, :known_health_issues, :string
-    add_column :pets, :medications_treaments, :string
-    add_column :pets, :dietary_restrictions, :string
+    add_column :pets, :known_health_issues, :text
+    add_column :pets, :medications_treaments, :text
+    add_column :pets, :dietary_restrictions, :text
     add_column :pets, :felv_status, :string
     add_column :pets, :fiv_status, :string
     add_column :pets, :felv_fiv_date, :datetime

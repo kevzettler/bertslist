@@ -23,6 +23,7 @@
 <div class="field_row">
 <%= f.label :pet_species, "Species" %>
  <select name="pet[pet_species_id]">
+        <option>-- Select One --</option>
   <% PetSpecies.all.each do |ps| %>
   <option value="<%= ps %>"><%= ps.name.titleize %></option>
   <% end %>
@@ -31,6 +32,7 @@
 
 <div class="field_row">
 <%= f.label :primary_breed %>
+    <option>-- Select One --</option>
  <select name="pet[primary_breed]">
   <% @breeds[0].each do |breed| %>
   <option value="<%= breed %>"><%= breed.titleize %></option>
@@ -41,6 +43,7 @@
 
 <div class="field_row"><%= f.label :secondary_breed %>
  <select name="pet[secondary_breed]">
+        <option>-- Select One --</option>
   <% @breeds[0].each do |breed| %>
   <option value="<%= breed %>"><%= breed.titleize %></option>
   <% end %>
@@ -84,6 +87,7 @@
 <div class="field_row">
 <%= f.label :primary_color %>
 <select name="pet[primary_color]">
+        <option>-- Select One --</option>
     <% ["black", "brown", "grey", "light brown",
      "orange", "red", "white"].each do |color| %>
         <option value="<%= color %>"><%= color.titleize %></option>
@@ -94,6 +98,7 @@
 <div class="field_row">
 <%= f.label :secondary_color %>
 <select name="pet[secondary_color]">
+        <option>-- Select One --</option>
     <% ["black", "brown", "grey", "light brown",
      "orange", "red", "white"].each do |color| %>
         <option value="<%= color %>"><%= color.titleize %></option>
@@ -104,6 +109,7 @@
 <div class="field_row">
 <%= f.label :eye_color %>
 <select name="pet[eye_color]">
+        <option>-- Select One --</option>
     <% ["black", "brown", "blue", "pink", "green"].each do |color| %>
         <option value="<%= color %>"><%= color.titleize %></option>
     <% end %>
@@ -114,6 +120,7 @@
 <div class="field_row">
 <%= f.label :size %>
 <select name="pet[size]">
+        <option>-- Select One --</option>
     <% ["small", "medium", "large", "very large"].each do |size| %>
         <option value="<%= size %>"><%= size.titleize %></option>
     <% end %>
@@ -123,6 +130,7 @@
 <div class="field_row">
 <%= f.label :coat %>
 <select name="pet[coat]">
+    <option>-- Select One --</option>
     <% ["short", "medium", "long", "curly", "rough", "hairless"].each do |coat| %>
         <option value="<%= coat %>"><%= coat.titleize %></option>
     <% end %>
@@ -149,7 +157,10 @@
 <div class="field_row">
 <%= f.label :status %>
 <select name="pet[status]">
-    <% ["awaiting foster", "in foster care", "ready for adoption", "not ready for"].each do |status| %>
+    <option>-- Select One --</option>
+    <% ["awaiting foster", "in foster care", "ready for adoption", "not ready for",
+        "missing/lost", "no medical clearance", "awaiting medical clearance",
+         "awaiting transfer", "quarantined"].each do |status| %>
         <option value="<%= status %>"><%= status.titleize %></option>
     <% end %>
 </select>
@@ -168,6 +179,7 @@
 <div class="field_row">
 <%= f.label :bonded_pair_with %>
 <select name="pet[bonded_pair_with]">
+    <option>-- Select One --</option>
     <% current_user.organization.pets.each do |pet| %>
         <option value="<%= pet.name %>"><%= pet.name %></option>
     <% end %>
@@ -175,7 +187,7 @@
 </div>
 
 <div class="field_row">
-<%= f.label :animal_id %>
+<%= f.label :animal_id, "Animal Id" %>
 <%= f.text_field :animal_id %>
 </div>
 
@@ -204,6 +216,7 @@
 <div class="field_row">
 <%= f.label :intake_reason %>
 <select name="pet[inatke_reason]">
+    <option>-- Select One --</option>
     <% ["abandoned", "abuse/cruelty", "allergies", "biting",
         "marriage/relationship split", "owner died", "owner moving",
         "sick/injured", "stray", "transfer", "unwanted litter",
@@ -254,6 +267,7 @@
 <div class="field_row">
 <%= f.label :health_prognosis %>
 <select name="pet[health_prognosis]">
+    <option>-- Select One --</option>
     <% ["healthy", "health issue - treatable", "health issue - untreatable"].each do |prognosis| %>
     <option value="<%= prognosis %>"><%= prognosis.capitalize %></option>
     <% end %>
@@ -262,12 +276,12 @@
 
 <div class="field_row">
 <%= f.label :known_health_issues %>
-<%= f.text_field :known_health_issues %>
+<%= f.text_area :known_health_issues %>
 </div>
 
 <div class="field_row">
-<%= f.label :medications_treaments %>
-<%= f.text_field :medications_treaments %>
+<%= f.label :medications_treaments, "Medications/Treatments" %>
+<%= f.text_area :medications_treaments %>
 </div>
 
 <div class="field_row">
@@ -279,6 +293,7 @@
 <div class="field_row">
 <%= f.label :felv_status %>
 <select name="pet[felv_status]">
+    <option>-- Select One --</option>
 <% ["negative", "positive", "too young to be tested"].each do |status| %>
     <option value="<%= status %>"><%= status.capitalize %></option>
 <% end %>
@@ -289,6 +304,7 @@
 <div class="field_row">
 <%= f.label :fiv_status %>
 <select name="pet[flv_status]">
+    <option>-- Select One --</option>
 <% ["negative", "positive", "too young to be tested"].each do |status| %>
     <option value="<%= status %>"><%= status.capitalize %></option>
 <% end %>
@@ -353,6 +369,7 @@
 <div class="field_row">
 <%= f.label :microchip_company %>
 <select name="pet[microchip_company]">
+    <option>-- Select One --</option>
 <% ["avid", "homeagain", "24petwatch", "banfield", "petlink", "other"].each do |company| %>
         <option value="<%= company %>]"><%= company.capitalize %></option>
 <% end %>
