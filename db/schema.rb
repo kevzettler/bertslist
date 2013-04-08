@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319044819) do
+ActiveRecord::Schema.define(:version => 20130401040611) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -60,16 +60,63 @@ ActiveRecord::Schema.define(:version => 20130319044819) do
 
   create_table "pets", :force => true do |t|
     t.string   "name"
-    t.integer  "age_years",       :default => 0
-    t.integer  "age_months",      :default => 0
-    t.boolean  "age_confirmed",   :default => true
-    t.boolean  "nokill",          :default => false
+    t.integer  "age_years",               :default => 0
+    t.integer  "age_months",              :default => 0
+    t.boolean  "age_confirmed",           :default => true
+    t.boolean  "nokill",                  :default => false
     t.text     "notes"
     t.date     "save_date"
     t.integer  "pet_species_id"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.integer  "organization_id"
+    t.string   "other_name"
+    t.string   "gender"
+    t.integer  "primary_breed_id"
+    t.integer  "secondary_breed_id"
+    t.integer  "age_days",                :default => 0
+    t.boolean  "estimated_age"
+    t.datetime "birthdate"
+    t.string   "primary_color"
+    t.string   "secondary_color"
+    t.string   "eye_color"
+    t.string   "size"
+    t.string   "coat_type"
+    t.text     "distinctive_features"
+    t.boolean  "spayed_neutered"
+    t.text     "status"
+    t.datetime "intake_date"
+    t.text     "special_notes"
+    t.integer  "bonded_pair_with"
+    t.integer  "animal_id"
+    t.boolean  "cruelty_case"
+    t.string   "adoption_fee"
+    t.string   "location_cage"
+    t.string   "intake_reason"
+    t.text     "original_owner"
+    t.string   "behavior_attributes"
+    t.string   "health_prognosis"
+    t.text     "known_health_issues"
+    t.text     "medications_treaments"
+    t.text     "dietary_restrictions"
+    t.string   "felv_status"
+    t.string   "fiv_status"
+    t.datetime "felv_fiv_date"
+    t.datetime "fvrcp_vaccination_date1"
+    t.datetime "fvrcp_vaccination_date2"
+    t.datetime "fvrcp_vaccination_date3"
+    t.datetime "rabies_vaccination_date"
+    t.datetime "heartworm_test_date"
+    t.datetime "flea_medication_date"
+    t.string   "flea_medication_type"
+    t.datetime "dewormed_date"
+    t.string   "dewormer_type"
+    t.string   "license"
+    t.string   "microchip_company"
+    t.string   "microchip_number"
+    t.text     "bio_story"
+    t.datetime "death_date"
+    t.string   "death_reason"
   end
 
   create_table "taggings", :force => true do |t|
