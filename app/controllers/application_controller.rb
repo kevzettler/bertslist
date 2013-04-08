@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-      new_organization_path
+      if current_user.organization.verified?
+          pets_path
+      else
+          new_organization_path
+      end
   end
 end
