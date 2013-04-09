@@ -22,10 +22,10 @@
 
 <div class="field_row">
 <%= f.label :pet_species, "Species" %>
- <select name="pet[pet_species_id]">
+ <select name="pet[pet_species_id]" id="pet_species_selector">
         <option>-- Select One --</option>
   <% PetSpecies.all.each do |ps| %>
-  <option value="<%= ps %>"><%= ps.name.titleize %></option>
+  <option value="<%= ps.id %>"><%= ps.name.titleize %></option>
   <% end %>
 </select>
 </div>
@@ -117,7 +117,7 @@
 </div>
 
 <!-- if dog -->
-<div class="field_row">
+<div class="field_row dog_dependant">
 <%= f.label :size %>
 <select name="pet[size]">
         <option>-- Select One --</option>
@@ -231,7 +231,7 @@
 <%= f.text_field :original_owner %>
 </div>
 
-<div class="field_row">
+<div class="field_row dog_dependent">
 <p id="dog_attrs">
 <%= f.label :behavior_attributes %>
 <!-- if dog -->
@@ -248,7 +248,7 @@
 </p>
 </div>
 
-<div class="field_row">
+<div class="field_row cat_dependent">
 <!-- if cat -->
 <p id="cat_attrs">
 <% ["good with kids", "not good with kids", "fearful, semi-feral",
@@ -276,17 +276,17 @@
 
 <div class="field_row">
 <%= f.label :known_health_issues %>
-<%= f.text_area :known_health_issues %>
+<%= f.text_area :known_health_issues, :rows => '10' %>
 </div>
 
 <div class="field_row">
 <%= f.label :medications_treaments, "Medications/Treatments" %>
-<%= f.text_area :medications_treaments %>
+<%= f.text_area :medications_treaments, :rows => '10' %>
 </div>
 
 <div class="field_row">
 <%= f.label :dietary_restrictions %>
-<%= f.text_area :dietary_restrictions %>
+<%= f.text_area :dietary_restrictions, :rows => '10' %>
 </div>
 
 <!-- If cat -->
@@ -301,7 +301,7 @@
 </div>
 
 <!-- If cat -->
-<div class="field_row">
+<div class="field_row cat_dependent">
 <%= f.label :fiv_status %>
 <select name="pet[flv_status]">
     <option>-- Select One --</option>
