@@ -57,14 +57,15 @@
 
 <div class="field_row">
 <%= f.label :age %>
-<%= f.number_field :age_years %>
-<%= f.number_field :age_months %>
+<%= f.label :age_days, "Days"%><%= f.number_field :age_days %>
+<%= f.label :age_months, "Months"%><%= f.number_field :age_months %>
+<%= f.label :age_years, "Years"%><%= f.number_field :age_years %>
 <select name="pet[age_confirmed]">
   <option value="true">Exactly</option>
   <option value="false">Approximately</option>
 </select>
 <br />
-<span>Years</span><span>Months</span>
+
 </div>
 
 <div class="field_row">
