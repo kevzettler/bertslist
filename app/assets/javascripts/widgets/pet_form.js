@@ -41,8 +41,10 @@ var pet_form = {
       $('#fileupload').disable();
       $('#fileupload').validationEngine('showPrompt', "Please wait while we upload your images", 'pass', "topLeft", true);
       $.cloudfuji.ajaxy_form.prototype.submit.apply(this, arguments);
-    }else{
+    }else if($('.template-download').length === 0){
       $('#fileupload').validationEngine('showPrompt', "Pets can not be listed without images", 'error', "topLeft", true);
+    }else{
+      $.cloudfuji.ajaxy_form.prototype.submit.apply(this, arguments);
     }
   },
 

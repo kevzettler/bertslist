@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130401040611) do
     t.integer  "age_days",                :default => 0
     t.boolean  "estimated_age"
     t.datetime "birthdate"
+    t.string   "animal_type"
     t.string   "primary_color"
     t.string   "secondary_color"
     t.string   "eye_color"

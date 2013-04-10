@@ -3,13 +3,4 @@
         <h1>Pet Details</h1>
         <%= render 'form' %>
     </div> 
-
-
-    <div class="span5">
-        <h2>Cross promotion</h2>
-        <%= form_for(@craigslist) do |f| %>
-        <legend></legend>
-        <%= render :partial => "third_parties/fields", :locals => {:f => f, :third_party_name => "craigslist"} %>
-        <% end %>
-    </div>
 </div>

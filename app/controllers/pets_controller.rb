@@ -59,6 +59,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @breeds = [::Bertslist::Breeds::Cat, ::Bertslist::Breeds::Dog];
     @pet = Pet.find(params[:id])
   end
 

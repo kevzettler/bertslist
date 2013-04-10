@@ -23,7 +23,7 @@
 <div class="field_row">
 <%= f.label :pet_species, "Species" %>
  <select name="pet[pet_species_id]" id="pet_species_selector">
-        <option>-- Select One --</option>
+  <option>-- Select One --</option>
   <% PetSpecies.all.each do |ps| %>
   <option value="<%= ps.id %>"><%= ps.name.titleize %></option>
   <% end %>
@@ -31,8 +31,8 @@
 </div>
 
 <div class="field_row">
-<%= f.label :primary_breed %>
- <select name="pet[primary_breed]">
+<%= f.label :primary_breed_id %>
+ <select name="pet[primary_breed_id]">
   <option>-- Select One --</option>
   <% @breeds[0].each do |breed| %>
   <option value="<%= breed %>"><%= breed.titleize %></option>
@@ -41,8 +41,8 @@
 </div>
 
 
-<div class="field_row"><%= f.label :secondary_breed %>
- <select name="pet[secondary_breed]">
+<div class="field_row"><%= f.label :secondary_breed_id %>
+ <select name="pet[secondary_breed_id]">
         <option>-- Select One --</option>
   <% @breeds[0].each do |breed| %>
   <option value="<%= breed %>"><%= breed.titleize %></option>
@@ -59,7 +59,7 @@
 <%= f.label :age %>
 <%= f.label :age_days, "Days"%><%= f.number_field :age_days %>
 <%= f.label :age_months, "Months"%><%= f.number_field :age_months %>
-<%= f.label :age_years, "Years"%><%= f.number_field :age_years %>
+<%= f.label :age_years, "Years"%><%= f.number_field :age_years %><br />
 <select name="pet[age_confirmed]">
   <option value="true">Exactly</option>
   <option value="false">Approximately</option>
@@ -129,11 +129,11 @@
 </div>
 
 <div class="field_row">
-<%= f.label :coat %>
-<select name="pet[coat]">
+<%= f.label :coat_type %>
+<select name="pet[coat_type]">
     <option>-- Select One --</option>
-    <% ["short", "medium", "long", "curly", "rough", "hairless"].each do |coat| %>
-        <option value="<%= coat %>"><%= coat.titleize %></option>
+    <% ["short", "medium", "long", "curly", "rough", "hairless"].each do |coat_type| %>
+        <option value="<%= coat_type %>"><%= coat_type.titleize %></option>
     <% end %>
 </select>
 </div>
@@ -216,7 +216,7 @@
 
 <div class="field_row">
 <%= f.label :intake_reason %>
-<select name="pet[inatke_reason]">
+<select name="pet[intake_reason]">
     <option>-- Select One --</option>
     <% ["abandoned", "abuse/cruelty", "allergies", "biting",
         "marriage/relationship split", "owner died", "owner moving",
@@ -304,7 +304,7 @@
 <!-- If cat -->
 <div class="field_row cat_dependent">
 <%= f.label :fiv_status %>
-<select name="pet[flv_status]">
+<select name="pet[fiv_status]">
     <option>-- Select One --</option>
 <% ["negative", "positive", "too young to be tested"].each do |status| %>
     <option value="<%= status %>"><%= status.capitalize %></option>

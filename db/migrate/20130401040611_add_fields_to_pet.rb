@@ -9,6 +9,7 @@ class AddFieldsToPet < ActiveRecord::Migration
     # Estimated age might already have in schema
     add_column :pets, :estimated_age, :boolean
     add_column :pets, :birthdate, :datetime
+    add_column :pets, :animal_type, :string 
     add_column :pets, :primary_color, :string 
     add_column :pets, :secondary_color, :string 
     add_column :pets, :eye_color, :string
