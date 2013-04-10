@@ -32,8 +32,8 @@
 
 <div class="field_row">
 <%= f.label :primary_breed %>
-    <option>-- Select One --</option>
  <select name="pet[primary_breed]">
+  <option>-- Select One --</option>
   <% @breeds[0].each do |breed| %>
   <option value="<%= breed %>"><%= breed.titleize %></option>
   <% end %>
@@ -118,7 +118,7 @@
 </div>
 
 <!-- if dog -->
-<div class="field_row dog_dependant">
+<div class="field_row dog_dependent">
 <%= f.label :size %>
 <select name="pet[size]">
         <option>-- Select One --</option>
