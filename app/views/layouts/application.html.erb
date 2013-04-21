@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Bertslist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <script type="text/javascript">var switchTo5x=true;</script>
@@ -11,8 +12,9 @@
 </head>
 <body>
 
-<div class="container">
-  
+<%= render "shared/global_head_nav" %>
+
+<div class="container" id="main_content">
   <% if notice %>
   <div class="notice"><%= notice %></div>
   <% end %>
@@ -20,14 +22,7 @@
   <div class="alert"><%= alert %></div>
   <% end %>
 
-  <div class="row">
-    <div class="span4">
-      <%= render "shared/sidebar" %>
-    </div>
-    <div class="span8">
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
 
 </div>
 </body>

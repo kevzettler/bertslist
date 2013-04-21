@@ -1,5 +1,3 @@
-
-
 PAPERCLIP_OPTIONS = {
   :styles => {:thumb => "x150", :large => "300x300>"},
   :storage => :s3,
@@ -11,7 +9,21 @@ PAPERCLIP_OPTIONS = {
   :bucket         => 'bertslist_photos',
 }
 
+ActionMailer::Base.smtp_settings = {
+  :port           => ENV['MAILGUN_SMTP_PORT'], 
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'bertslist.heroku.com',
+  :authentication => :plain,
+}
+
+ActionMailer::Base.delivery_method = :smtp
+
 Bertslist::Application.configure do
+  config.fb_app_id = ENV['FB_APP_ID']
+  config.fb_app_secret = ENV['FB_APP_Secret']
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -77,6 +89,8 @@ Bertslist::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = { :host => 'bertslist.herokuapp.com' }
 
   config.assets.initalize_on_precompile = false
 end

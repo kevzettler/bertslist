@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @third_party.name %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @third_party.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @third_party.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_third_party_path(@third_party) %> |
+<%= link_to 'Back', third_parties_path %>

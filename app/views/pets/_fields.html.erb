@@ -1,0 +1,398 @@
+<div class="field_row">
+<%= f.label :name %>
+<%= f.text_field :name, :class =>"validate[required]" %>
+</div>
+
+<div class="field_row">
+<%= f.label :other_name, "Alias" %>
+<%= f.text_field :other_name %>
+</div>
+
+<div class="field_row">
+<%= f.label :gender%>
+<p>
+    <label for="pet[gender][male]" class="radio inline">
+        <input type="radio" name="pet[gender]" id="pet[gender][male]" value="male" /> Male
+    </label> 
+    <label for="pet[gender][female]" class="radio inline">
+        <input type="radio" name="pet[gender]" id="user[affiliate][female]" value="female" /> Female
+    </label>
+</p>
+</div>
+
+<div class="field_row">
+<%= f.label :pet_species, "Species" %>
+ <select name="pet[pet_species_id]" id="pet_species_selector">
+  <option>-- Select One --</option>
+  <% PetSpecies.all.each do |ps| %>
+  <option value="<%= ps.id %>"><%= ps.name.titleize %></option>
+  <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :primary_breed_id %>
+ <select name="pet[primary_breed_id]">
+  <option>-- Select One --</option>
+  <% @breeds[0].each do |breed| %>
+  <option value="<%= breed %>"><%= breed.titleize %></option>
+  <% end %>
+</select>
+</div>
+
+
+<div class="field_row"><%= f.label :secondary_breed_id %>
+ <select name="pet[secondary_breed_id]">
+        <option>-- Select One --</option>
+  <% @breeds[0].each do |breed| %>
+  <option value="<%= breed %>"><%= breed.titleize %></option>
+  <% end %>
+</select></div>
+
+
+<div class="field_row"><%= f.label :save_date %>
+<%= f.text_field :save_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+<!-- <label for="pet[nokill]">no kill</label><input type="checkbox"  id="pet[nokill]" /> -->
+<span class="help-block">If the pet is going to be Euthanized</span></div>
+
+<div class="field_row">
+<%= f.label :age %>
+<%= f.label :age_days, "Days"%><%= f.number_field :age_days %>
+<%= f.label :age_months, "Months"%><%= f.number_field :age_months %>
+<%= f.label :age_years, "Years"%><%= f.number_field :age_years %><br />
+<select name="pet[age_confirmed]">
+  <option value="true">Exactly</option>
+  <option value="false">Approximately</option>
+</select>
+<br />
+
+</div>
+
+<div class="field_row">
+<%= f.label :birthdate %>
+<%= f.text_field :birthdate, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :animal_type %>
+<p>
+    <label for="pet[animal_type][domestic]" class="radio inline">
+        <input type="radio" name="pet[animal_type]" id="pet[animal_type][domestic]" value="true" /> Domestic
+    </label> 
+    <label for="pet[animal_type][feral]" class="radio inline">
+        <input type="radio" name="pet[animal_type]" id="pet[animal_type][feral]" value="false" /> Feral
+    </label>
+</p>
+</div>
+
+<div class="field_row">
+<%= f.label :primary_color %>
+<select name="pet[primary_color]">
+        <option>-- Select One --</option>
+    <% ["black", "brown", "grey", "light brown",
+     "orange", "red", "white"].each do |color| %>
+        <option value="<%= color %>"><%= color.titleize %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :secondary_color %>
+<select name="pet[secondary_color]">
+        <option>-- Select One --</option>
+    <% ["black", "brown", "grey", "light brown",
+     "orange", "red", "white"].each do |color| %>
+        <option value="<%= color %>"><%= color.titleize %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :eye_color %>
+<select name="pet[eye_color]">
+        <option>-- Select One --</option>
+    <% ["black", "brown", "blue", "pink", "green"].each do |color| %>
+        <option value="<%= color %>"><%= color.titleize %></option>
+    <% end %>
+</select>
+</div>
+
+<!-- if dog -->
+<div class="field_row dog_dependent">
+<%= f.label :size %>
+<select name="pet[size]">
+        <option>-- Select One --</option>
+    <% ["small", "medium", "large", "very large"].each do |size| %>
+        <option value="<%= size %>"><%= size.titleize %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :coat_type %>
+<select name="pet[coat_type]">
+    <option>-- Select One --</option>
+    <% ["short", "medium", "long", "curly", "rough", "hairless"].each do |coat_type| %>
+        <option value="<%= coat_type %>"><%= coat_type.titleize %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+    <%= f.label :distinctive_features %>
+    <textarea name="pet[distinctive_features]"></textarea>
+</div>
+
+<div class="field_row">
+<%= f.label :spayed_neutered %>
+<p>
+    <label for="pet[spayed_neutered][yes]" class="radio inline">
+        <input type="radio" name="pet[spayed_neutered]" id="pet[spayed_neutered][yes]" value="true" /> Yes
+    </label> 
+    <label for="pet[spayed_neutered][no]" class="radio inline">
+        <input type="radio" name="pet[spayed_neutered]" id="pet[spayed_neutered][no]" value="false" /> No
+    </label>
+</p>
+</div>
+
+<div class="field_row">
+<%= f.label :status %>
+<select name="pet[status]">
+    <option>-- Select One --</option>
+    <% ["awaiting foster", "in foster care", "ready for adoption", "not ready for",
+        "missing/lost", "no medical clearance", "awaiting medical clearance",
+         "awaiting transfer", "quarantined"].each do |status| %>
+        <option value="<%= status %>"><%= status.titleize %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :intake_date %>
+<%= f.text_field :intake_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :special_notes %>
+<textarea name="pet[special_notes]"></textarea>
+</div>
+
+<div class="field_row">
+<%= f.label :bonded_pair_with %>
+<select name="pet[bonded_pair_with]">
+    <option>-- Select One --</option>
+    <% current_user.organization.pets.each do |pet| %>
+        <option value="<%= pet.name %>"><%= pet.name %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :animal_id, "Animal Id" %>
+<%= f.text_field :animal_id %>
+</div>
+
+<div class="field_row">
+<%= f.label :cruelty_case %>
+<p>
+    <label for="pet[cruelty_case][yes]" class="radio inline">
+        <input type="radio" name="pet[cruelty_case]" id="pet[cruelty_case][yes]" value="true" /> Yes
+    </label> 
+    <label for="pet[cruelty_case][no]" class="radio inline">
+        <input type="radio" name="pet[cruelty_case]" id="pet[cruelty_case][no]" value="false" /> No
+    </label>
+</p>
+</div>
+
+<div class="field_row">
+<%= f.label :adoption_fee %>
+<%= f.text_field :adoption_fee %>
+</div>
+
+<div class="field_row">
+<%= f.label :location_cage, "Location or Cage" %>
+<%= f.text_field :location_cage %>
+</div>
+
+<div class="field_row">
+<%= f.label :intake_reason %>
+<select name="pet[intake_reason]">
+    <option>-- Select One --</option>
+    <% ["abandoned", "abuse/cruelty", "allergies", "biting",
+        "marriage/relationship split", "owner died", "owner moving",
+        "sick/injured", "stray", "transfer", "unwanted litter",
+        "unsuitable accommodation", "surrender/no reason given"].each do |reason| %>
+        <option value="<%= reason %>"><%= reason.titleize %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :original_owner %>
+<%= f.text_field :original_owner %>
+</div>
+
+<div class="field_row dog_dependent">
+<p id="dog_attrs">
+<%= f.label :behavior_attributes %>
+<!-- if dog -->
+<% ["good with younger children", "good with older children",
+    "not good with children", "special needs", "good with dogs",
+    "good with cats", "house trained", "purebred", "dangerous", "social",
+    "shy/insecure", "aggressive/dominant", "independent"].each do |attr| %>
+    <label for="pet[behavior_attributes][<%= attr %>]" class="radio inline">
+        <input type="checkbox" name="pet[behavior_attributes]" 
+               id="pet[behavior_attributes][<%= attr %>]" 
+               value="<%= attr %>" /> <%= attr.capitalize %>
+    </label><br />
+<% end %>
+</p>
+</div>
+
+<div class="field_row cat_dependent">
+<!-- if cat -->
+<p id="cat_attrs">
+<% ["good with kids", "not good with kids", "fearful, semi-feral",
+    "declawed", "good with cats", "good with dogs", "indoor/outdoor",
+    "litter box issues", "playful", "feisty", "likes being held",
+    "likes people", "independent", "lap cat", "special needs"].each do |attr| %>
+    <label for="pet[behavior_attributes][<%= attr %>]" class="radio inline">
+        <input type="checkbox" name="pet[behavior_attributes]" 
+               id="pet[behavior_attributes][<%= attr %>]" 
+               value="<%= attr %>" /> <%= attr.capitalize %>
+    </label><br />
+<% end %>
+</p>
+</div>
+
+<div class="field_row">
+<%= f.label :health_prognosis %>
+<select name="pet[health_prognosis]">
+    <option>-- Select One --</option>
+    <% ["healthy", "health issue - treatable", "health issue - untreatable"].each do |prognosis| %>
+    <option value="<%= prognosis %>"><%= prognosis.capitalize %></option>
+    <% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :known_health_issues %>
+<%= f.text_area :known_health_issues, :rows => '10' %>
+</div>
+
+<div class="field_row">
+<%= f.label :medications_treaments, "Medications/Treatments" %>
+<%= f.text_area :medications_treaments, :rows => '10' %>
+</div>
+
+<div class="field_row">
+<%= f.label :dietary_restrictions %>
+<%= f.text_area :dietary_restrictions, :rows => '10' %>
+</div>
+
+<!-- If cat -->
+<div class="field_row">
+<%= f.label :felv_status %>
+<select name="pet[felv_status]">
+    <option>-- Select One --</option>
+<% ["negative", "positive", "too young to be tested"].each do |status| %>
+    <option value="<%= status %>"><%= status.capitalize %></option>
+<% end %>
+</select>
+</div>
+
+<!-- If cat -->
+<div class="field_row cat_dependent">
+<%= f.label :fiv_status %>
+<select name="pet[fiv_status]">
+    <option>-- Select One --</option>
+<% ["negative", "positive", "too young to be tested"].each do |status| %>
+    <option value="<%= status %>"><%= status.capitalize %></option>
+<% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :felv_fiv_date %>
+<%= f.text_field :felv_fiv_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :fvrcp_vaccination_date1 %>
+<%= f.text_field :fvrcp_vaccination_date1, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :fvrcp_vaccination_date2 %>
+<%= f.text_field :fvrcp_vaccination_date2, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :fvrcp_vaccination_date3 %>
+<%= f.text_field :fvrcp_vaccination_date3, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :rabies_vaccination_date %>
+<%= f.text_field :rabies_vaccination_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :heartworm_test_date %>
+<%= f.text_field :heartworm_test_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :flea_medication_date %>
+<%= f.text_field :flea_medication_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :flea_medication_type %>
+<%= f.text_field :flea_medication_type %>
+</div>
+
+<div class="field_row">
+<%= f.label :dewormed_date %>
+<%= f.text_field :dewormed_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :dewormer_type %>
+<%= f.text_field :dewormer_type %>
+</div>
+
+<div class="field_row">
+<%= f.label :license %>
+<%= f.text_field :license %>
+</div>
+
+<div class="field_row">
+<%= f.label :microchip_company %>
+<select name="pet[microchip_company]">
+    <option>-- Select One --</option>
+<% ["avid", "homeagain", "24petwatch", "banfield", "petlink", "other"].each do |company| %>
+        <option value="<%= company %>]"><%= company.capitalize %></option>
+<% end %>
+</select>
+</div>
+
+<div class="field_row">
+<%= f.label :microchip_number %>
+<%= f.text_field :microchip_number %>
+</div>
+
+<div class="field_row">
+<%= f.label :bio_story %>
+<%= f.text_area :bio_story, :rows => '10' %>
+</div>
+
+<div class="field_row">
+<%= f.label :death_date %>
+<%= f.text_field :death_date, :class => "datepicker", :placeholder => "mm/dd/yyyy" %>
+</div>
+
+<div class="field_row">
+<%= f.label :death_reason %>
+<%= f.text_field :death_reason %>
+</div>

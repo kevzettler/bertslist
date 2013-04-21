@@ -1,0 +1,7 @@
+<h1>Register Your Organization</h1>
+
+<%= render "addresses/disclaimer" %>
+
+<% if current_user.organization.nil? %>
+  <%= render "form"%>
+<% end %>

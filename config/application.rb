@@ -11,6 +11,9 @@ end
 
 module Bertslist
   class Application < Rails::Application
+    config.fb_app_id = '166956276774498'
+    config.fb_app_secret = '70ab0f74f04212c387c4971869c3fe61'
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

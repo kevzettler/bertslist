@@ -1,18 +1,19 @@
 namespace :bertslist do
   
-  task :reset do
-    if ENV["RAILS_ENV"]!= "production" #do not do this in production
-      Rake::Task["db:drop"].invoke
-      Rake::Task["db:create"].invoke
-      Rake::Task["db:migrate"].invoke
-      Rake::Task["bertslist:bootstrap"].invoke
-      Rake::Task["bertslist:static:blog"]
-    end
-  end
+  # use scripts/bootstrap instead
+  # task :reset do
+  #   if ENV["RAILS_ENV"]!= "production" #do not do this in production
+  #     Rake::Task["db:drop"].invoke
+  #     Rake::Task["db:create"].invoke
+  #     Rake::Task["db:migrate"].invoke
+  #     Rake::Task["bertslist:bootstrap"].invoke
+  #     Rake::Task["bertslist:static:blog"]
+  #   end
+  # end
 
-  task :bootstrap do
-    Rake::Task["db:seed"].invoke
-  end
+  # task :bootstrap do
+  #   #Rake::Task["db:seed"].invoke
+  # end
 
   namespace :static do
     desc "clear statics"
@@ -50,10 +51,6 @@ namespace :bertslist do
       av.assign({:blog => true})
 
       Dir.chdir(File.dirname(__FILE__) +"/../../jekyll/_layouts")
-
-      puts "oooh yeah"
-      puts Dir.pwd
-      puts Dir.glob("*.html")
 
       Dir.glob("*.html").each do |layout|
         puts "generating layout for #{layout}"

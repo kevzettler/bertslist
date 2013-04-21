@@ -1,13 +1,15 @@
-<div class="pet_cell row">
+<div class="pet_cell clearfix">
   <% unless pet.pet_images.first.nil? %>
-  <img class="img-rounded" src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.notes %>" height="150" width="150"/>
+  <a href="<%= pet_url(pet) %>">
+      <img class="img-rounded" src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.notes %>" height="150" width="150"/>
+  </a>
   <% end %>
   <h2><%= pet.name %> The <%= pet.pet_species.name %></h2>
   <p>Age: <%= pet.age_years %> Years <%= pet.age_months %> Months <p>
   <p><%= pet.notes %></p>
   <nav>
     <%= link_to 'Learn More', pet %>
-    <% if !current_user.nil? and (current_user.id == pet.user_id) %>
+    <% if !current_user.nil? and (current_user.organization.id == pet.organization.id) %>
       <%= link_to 'Edit', edit_pet_path(pet) %>
       <%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>

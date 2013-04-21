@@ -1,0 +1,14 @@
+<h1><%= @organization.name %> Pets</h1>
+
+<% if @organization.pets.count == 0 %>
+  <p>This Organization dosen't have any pets listed</p>
+  <% if current_user and current_user.organization_id == @organization.id %>
+    <p>You Can Post pets <%= link_to("Here", new_pet_path) %></p>
+  <% end %>
+<% else  %>
+  <% @organization.pets.each do |pet| %>
+	  <% if !pet.organization.nil? and pet.organization.verified? %>
+  	  <%= render :partial => "shared/pet_cell", :locals => {:pet => pet} %>
+	  <% end %>
+  <% end %>
+<% end %>

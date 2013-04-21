@@ -3,21 +3,31 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
+  <fieldset>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
 
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 
-  <div><%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
 
-  <div id="shelter_or_rescue">
-    <label>Are you afilliated with a Shelter or Rescue Program?</label>
-    <p><label for="user[affiliate]">Yes</label> <input type="checkbox" name="user[affiliate]" id="user[affiliate]" /></p>
-  </div>
 
-  <div><%= f.submit "Sign up", :class => "btn btn-success" %></div>
+  <label>Are you afilliated with a Shelter or Rescue Program<br />
+    and want to list pets for adoption?</label>
+
+   <p>
+    <label for="user[affiliate][yes]" class="radio inline">
+        <input type="radio" name="user[affiliate]" id="user[affiliate][yes]" value="true" /> Yes
+    </label> 
+    <label for="user[affiliate][no]" class="radio inline">
+        <input type="radio" name="user[affiliate]" id="user[affiliate][no]" value="false" /> No
+    </label>
+   </p>
+
+   <%= f.submit "Submit", :class => "btn btn-success" %>
+  </fieldset>
 <% end %>
 
 <%= render "devise/shared/links" %>

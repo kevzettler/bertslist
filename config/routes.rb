@@ -1,15 +1,22 @@
+require "resque/server"
 Bertslist::Application.routes.draw do
+  resources :third_parties
   resources :addresses
-  match 'users/verify' => 'addresses#new'
-
-  resources :pets
   resources :pet_images
 
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+  resources :organizations
 
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => "users/omniauth_callbacks"
+  }
   resources :users
   match 'users/:id/pets' => 'users#pets', :as => :users_pets
+
   match 'pets/:id/images' => 'pets#images', :as => :pets_images
+  match "pets/:id/uploader" => 'pets#uploader', :as => :pets_uploader
+  resources :pets
+
+  mount Resque::Server.new, :at => "/resque"
 
   root :to => "pets#index"
 

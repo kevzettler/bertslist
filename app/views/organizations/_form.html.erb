@@ -1,0 +1,23 @@
+<%= form_for @organization, :html => {:class => "ajaxy_form"}  do |f| %>
+
+<%= f.label :name, "Organization Name" %>
+<%= f.text_field :name, :class =>"validate[required]" %>
+
+<%= fields_for(@address) do |fa| %>
+  <%= render :partial => "addresses/fields", :locals => {:f => fa} %>
+<% end %>
+
+<fieldset>
+<%= f.label :phone, "Contact Phone Number" %>
+<%= f.text_field :phone %>
+
+<%= f.label :email, "Contact Email" %>
+<%= f.text_field :email, :placeholder => current_user.email %>
+</fieldset>
+
+<div class="field">
+  <%= f.submit "Register", :class => "btn btn-success btn-large" %>
+</div>
+
+
+<% end %>

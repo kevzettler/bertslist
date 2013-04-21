@@ -23,6 +23,18 @@ class PetsController < ApplicationController
     end
   end
 
+  def uploader
+    @pet = Pet.find(params[:id])
+    response.headers["Last-Modified"] = Time.now.httpdate.to_s
+    response.headers["Expires"] = 0.to_s
+    # HTTP 1.0
+    response.headers["Pragma"] = "no-cache"
+    # HTTP 1.1 'pre-check=0, post-check=0' (IE specific)
+    response.headers["Cache-Control"] = 'no-store, no-cache, must-revalidate, max-age=0, pre-check=0, post-check=0'
+    response.headers['Content-type'] = 'application/javascript; charset=utf-8'
+    render :action => 'uploader', :layout => false, :content_type => 'text/javascript'
+  end
+
   def images
     @pet = Pet.find(params[:id])
     respond_to do |format|
@@ -34,11 +46,10 @@ class PetsController < ApplicationController
   # GET /pets/new
   # GET /pets/new.json
   def new
-    unless current_user.verified?
-      return redirect_to "/users/verify"
-    end
-
     @pet = Pet.new
+    @breeds = [::Bertslist::Breeds::Cat, ::Bertslist::Breeds::Dog];
+    @craigslist = ThirdParty.new
+
     
     respond_to do |format|
       format.html # new.html.erb
@@ -48,6 +59,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @breeds = [::Bertslist::Breeds::Cat, ::Bertslist::Breeds::Dog];
     @pet = Pet.find(params[:id])
   end
 
@@ -55,7 +67,7 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(params[:pet])
-    @pet.user_id = current_user.id
+    @pet.organization_id = current_user.organization_id
 
     respond_to do |format|
       if @pet.save

@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
       flash[:notice] = session[:message]
     end
   end
+
+  def after_sign_in_path_for(resource)
+      if current_user.organization.verified?
+          pets_path
+      else
+          new_organization_path
+      end
+  end
 end

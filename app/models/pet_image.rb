@@ -18,4 +18,13 @@ class PetImage < ActiveRecord::Base
       "delete_type" => "DELETE"
     }
   end
+
+  def to_base64
+    url = (self.photo.url.include?('http://')) ? self.photo.url : "http://localhost:5000"+self.photo.url
+    ActiveSupport::Base64.encode64(open(url) { |io| io.read })
+  end
+
+  def data_uri
+    "data:#{self.photo.content_type};base64,"+self.to_base64
+  end
 end
