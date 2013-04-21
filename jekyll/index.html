@@ -3,9 +3,11 @@ layout: default
 title: Bertslist Blog
 ---
 <h1>Bertslist Blog</h1>
+<table>
 {% for post in site.posts %}
-  <div>
-    <td><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></td>
-    <td>{{ post.date | date_to_string }}</td>
-  </div>
+  <tr>
+    <td valign="middle"><span class="badge badge-success pull-left">{{ post.date | date_to_string }}</span></td>
+    <td valign="middle"><h2 class="pull-left"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a><h2></td>
+  </tr>
 {% endfor %}
+</table>

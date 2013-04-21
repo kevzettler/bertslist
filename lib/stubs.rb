@@ -10,14 +10,16 @@ class Layout
   def javascript_include_tag(*args); end
   
   def render(options = {})
-    require 'erb'
+    puts "LOL RENDER"
+    #require 'erb'
 
     if options.class == String
       options.sub!("shared/", "shared/_")
     end
 
+    puts "rendering file /../app/views/#{options}.html.erb"
     ERB.new(File.open(File.dirname(__FILE__) + "/../app/views/#{options}.html.erb", "rb").read).result(Layout.new.get_binding  { |*pages| '{{ content }}' if pages.empty? })
-#    "{{ include #{options[/[a-z_]*$/]}.html }}"
+    #{}"{% include #{options[:partial][/[a-z_]*$/]}.html %}"
   end
   
   def get_binding

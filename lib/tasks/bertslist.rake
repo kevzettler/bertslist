@@ -39,6 +39,8 @@ namespace :bertslist do
 
     desc "Blog layout"
     task :blog_layout => :environment do
+      # rails jekyll shared views from:
+      # http://numbers.brighterplanet.com/2010/08/09/sharing-rails-views-with-jekyll/
       require 'erb'
       require 'stubs'
 
@@ -55,7 +57,6 @@ namespace :bertslist do
       Dir.glob("*.html").each do |layout|
         puts "generating layout for #{layout}"
         File.open(Dir.pwd+"/"+layout, 'w+') do |f|
-          #f.write ERB.new(File.open(File.dirname(__FILE__) + "/../../app/views/layouts/application.html.erb", "rb").read).result(Layout.new.get_binding  { |*pages| '{{ content }}' if pages.empty? })
           f.write ERB.new(File.open(File.dirname(__FILE__) + "/../../app/views/layouts/blog.html.erb", "rb").read).result(av.get_binding  { |*pages| '{{ content }}' if pages.empty? })
         end
       end

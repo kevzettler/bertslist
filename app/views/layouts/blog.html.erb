@@ -9,15 +9,17 @@
   <script type="text/javascript">stLight.options({publisher: "e8005f24-cf8c-4f87-837e-d269f4401148"}); </script>
 </head>
 <body>
-
-<div class="container">
-  
-
-  <div class="row">
-    <div class="span8">
-      <%= yield %>
-    </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">Bertslist Blog</a>
   </div>
+</div>
+</div>
+
+<div class="container" id="main_content">
+  <%= yield %>
+</div>
 
 </div>
 </body>
