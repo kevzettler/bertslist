@@ -3,9 +3,16 @@
 
 .pet_cell
   @extend .cell
+  width: 323px
+  min-height: 210px
+  float: left
+  margin-right: 77px
   img
     float: left
     padding-right: 10px
+  
+.pet_container .pet_cell:nth-child(3n+3)
+  margin-right: 0px  
 
 div.field
   padding: 5px 0
