@@ -1,4 +1,4 @@
-<div class="pet_cell clearfix">
+<div class="span4 pet_cell">
   <% unless pet.pet_images.first.nil? %>
   <div class="pull-left">
     <a href="<%= pet_url(pet) %>">
@@ -12,7 +12,7 @@
   </div>
   <% end %>
   <div class="pull-right pet-cell-details">
-    <h2><a href="<%= pet_url(pet) %>"><%= pet.name %></a></h2>
+    <h3><a href="<%= pet_url(pet) %>"><%= pet.name %></a></h3>
     <p>The <%= pet.pet_species.name %></p>
     <p>Age: <%= pet.age_years %> Years <%= pet.age_months %> Months <p>
       <p><%= pet.notes %></p>
