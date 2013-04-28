@@ -1,27 +1,33 @@
 <div class="span4 pet_cell">
-  <% unless pet.pet_images.first.nil? %>
-  <div class="pull-left">
-    <a href="<%= pet_url(pet) %>">
-      <img class="img-rounded" src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.notes %>" height="150" width="150"/>
-    </a>
-    <div class="share_row pull_left">
+  <div class="row-fluid">
+      <% unless pet.pet_images.first.nil? %>
+      <div class="span6">
+        <a href="<%= pet_url(pet) %>">
+          <img class="img-rounded" src="<%= pet.pet_images.first.photo.url(:thumb) %>" alt="<%= pet.notes %>" height="150" width="150"/>
+        </a>
+      </div>
+      <div class="span6">
+        <h3><a href="<%= pet_url(pet) %>"><%= pet.name %></a></h3>
+        <p>The <%= pet.pet_species.name %></p>
+        <p>Age: <%= pet.age_years %> Years <%= pet.age_months %> Months</p>
+        <p><%= pet.notes %></p>
+      </div>
+      <% end %>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
       <span class='st_facebook_large' displayText='Facebook'  st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>" ></span>
       <span class='st_twitter_large' displayText='Tweet' st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>"></span>
       <span class='st_email_large' displayText='Email' st_url="<%= pet_url(pet) %>" st_summary="<%= pet.notes %>"></span>
     </div>
-  </div>
-  <% end %>
-  <div class="pull-right pet-cell-details">
-    <h3><a href="<%= pet_url(pet) %>"><%= pet.name %></a></h3>
-    <p>The <%= pet.pet_species.name %></p>
-    <p>Age: <%= pet.age_years %> Years <%= pet.age_months %> Months <p>
-      <p><%= pet.notes %></p>
-      <nav>
-        <%= link_to 'Learn More', pet %>
-        <% if !current_user.nil? and (current_user.organization.id == pet.organization.id) %>
-        <%= link_to 'Edit', edit_pet_path(pet) %>
-        <%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </nav>
+    <div class="span6">
+        <nav>
+          <%= link_to 'Learn More', pet %>
+          <% if !current_user.nil? and (current_user.organization.id == pet.organization.id) %>
+          <%= link_to 'Edit', edit_pet_path(pet) %>
+          <%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </nav>
+    </div>
   </div>
 </div>
